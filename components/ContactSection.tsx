@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import {
   FiGithub,
   FiLinkedin,
-  FiTwitter,
+  FiFacebook,
   FiMail,
   FiArrowRight,
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -221,13 +222,22 @@ export default function ContactSection() {
                     <FiLinkedin size={22} />
                   </a>
                   <a
-                    href="https://twitter.com/example"
+                    href="https://facebook.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone hover:text-accent transition-colors"
-                    aria-label="Twitter"
+                    aria-label="Facebook"
                   >
-                    <FiTwitter size={22} />
+                    <FiFacebook size={22} />
+                  </a>
+                  <a
+                    href="https://wa.me/1234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone hover:text-accent transition-colors"
+                    aria-label="WhatsApp"
+                  >
+                    <FaWhatsapp size={22} />
                   </a>
                 </div>
               </div>

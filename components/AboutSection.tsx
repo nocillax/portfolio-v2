@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FiCode, FiDatabase, FiLayout, FiTool } from "react-icons/fi";
+import { FiCode, FiDatabase, FiLayout, FiTool, FiServer } from "react-icons/fi";
+import { getTechIcon } from "./icons/TechIcons";
 
 export default function AboutSection() {
   // Tech stacks by category
@@ -55,8 +56,8 @@ export default function AboutSection() {
               experiences
             </h2>
 
-            {/* Profile image - more reasonably sized */}
-            <div className="mt-12 mb-8 relative w-40 h-40 md:w-56 md:h-56 overflow-hidden">
+            {/* Profile image - centered in mobile view */}
+            <div className="mt-12 mb-8 relative w-40 h-40 md:w-56 md:h-56 overflow-hidden mx-auto lg:mx-0">
               <div className="w-full h-full border border-accent/20 flex items-center justify-center bg-paper">
                 {/* This would be replaced with an actual image in a real portfolio */}
                 <span className="text-3xl font-serif italic text-accent">
@@ -110,7 +111,7 @@ export default function AboutSection() {
                   Technical Expertise
                 </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-10">
                   {techStacks.map((stack, i) => (
                     <motion.div
                       key={stack.category}
@@ -129,7 +130,7 @@ export default function AboutSection() {
                         {stack.technologies.map((tech) => (
                           <li
                             key={tech}
-                            className="text-stone font-sans text-sm"
+                            className="text-stone font-sans text-sm group hover:text-dark transition-colors duration-300 cursor-default"
                           >
                             {tech}
                           </li>
@@ -147,25 +148,4 @@ export default function AboutSection() {
   );
 }
 
-// Add this component for the icon that's missing
-function FiServer(props: any) {
-  return (
-    <svg
-      stroke="currentColor"
-      fill="none"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      height="1em"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-      <line x1="6" y1="6" x2="6" y2="6"></line>
-      <line x1="6" y1="18" x2="6" y2="18"></line>
-    </svg>
-  );
-}
+// We're now using the FiServer component from react-icons/fi

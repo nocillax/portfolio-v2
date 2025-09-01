@@ -1,10 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projects, Project } from "@/data/projects";
+import {
+  SpinElement,
+  PulseElement,
+  FloatingElement,
+  BouncingElement,
+  WiggleElement,
+  PathFloatingElement,
+  KawaiiCircle,
+  KawaiiStar,
+  KawaiiDots,
+  KawaiiTriangle,
+  KawaiiSnowflake,
+  KawaiiCloud,
+  KawaiiSakura,
+  KawaiiLeaf,
+  KawaiiSplash,
+  KawaiiRipple,
+} from "./KawaiiElements";
 
 export default function ProjectsSection() {
   const categories = ["All", "Full-Stack", "Front-End", "WordPress", "QA"];
@@ -35,6 +53,64 @@ export default function ProjectsSection() {
       {/* Background elements */}
       <div className="absolute inset-0 paper-texture opacity-5 pointer-events-none"></div>
 
+      {/* Kawaii decorative elements - Added even more elements */}
+      <SpinElement delay={0} size="xs" slow={true} x="90%" y="5%">
+        <KawaiiStar className="text-accent/20" size={10} />
+      </SpinElement>
+      <PulseElement delay={1} size="xs" x="20%" y="85%">
+        <KawaiiCircle className="bg-accent/20" />
+      </PulseElement>
+      <SpinElement delay={2} size="xs" x="65%" y="30%">
+        <KawaiiDots className="text-accent/20" />
+      </SpinElement>
+      <FloatingElement delay={1.2} size="xs" x="10%" y="20%">
+        <KawaiiSakura className="text-accent/20" size={12} />
+      </FloatingElement>
+      <WiggleElement delay={0.5} size="xs" x="80%" y="60%">
+        <KawaiiSnowflake className="text-accent/20" size={10} />
+      </WiggleElement>
+      <PathFloatingElement delay={2.5} size="sm">
+        <KawaiiCloud className="text-accent/10" size={18} />
+      </PathFloatingElement>
+      <BouncingElement delay={1.8} size="xs" x="40%" y="15%">
+        <KawaiiTriangle className="border-b-accent/20" />
+      </BouncingElement>
+      <SpinElement delay={3} size="xs" x="75%" y="75%" slow={true}>
+        <KawaiiStar className="text-accent/20" size={8} />
+      </SpinElement>
+
+      {/* Additional kawaii elements */}
+      <FloatingElement delay={0.7} size="xs" x="25%" y="45%">
+        <KawaiiSnowflake className="text-accent/20" size={9} />
+      </FloatingElement>
+      <PulseElement delay={2.2} size="xs" x="85%" y="35%">
+        <KawaiiSplash className="text-accent/20" size={12} />
+      </PulseElement>
+      <SpinElement delay={1.5} size="sm" x="15%" y="65%" slow={true}>
+        <KawaiiLeaf className="text-accent/20" size={14} />
+      </SpinElement>
+      <BouncingElement delay={3.1} size="xs" x="60%" y="12%">
+        <KawaiiRipple className="text-accent/20" size={10} />
+      </BouncingElement>
+      <WiggleElement delay={2.7} size="xs" x="45%" y="80%">
+        <KawaiiDots className="text-accent/20" />
+      </WiggleElement>
+      <PathFloatingElement delay={1.0} size="xs">
+        <KawaiiSakura className="text-accent/30" size={8} />
+      </PathFloatingElement>
+      <FloatingElement delay={2.3} size="xs" x="95%" y="22%">
+        <KawaiiTriangle className="border-b-accent/20" />
+      </FloatingElement>
+      <SpinElement delay={0.4} size="xs" x="30%" y="28%" slow={false}>
+        <KawaiiSnowflake className="text-accent/30" size={11} />
+      </SpinElement>
+      <PulseElement delay={3.5} size="sm" x="78%" y="50%">
+        <KawaiiSplash className="text-accent/10" size={16} />
+      </PulseElement>
+      <BouncingElement delay={1.6} size="xs" x="5%" y="40%">
+        <KawaiiRipple className="text-accent/30" size={8} />
+      </BouncingElement>
+
       <div className="container mx-auto px-6 relative">
         {/* Section header with refined typography */}
         <motion.div
@@ -63,7 +139,7 @@ export default function ProjectsSection() {
           </div>
         </motion.div>
 
-        {/* Category filter with minimal styling */}
+        {/* Category filter with dramatically improved UX for clickable tabs */}
         <div className="flex flex-wrap mb-16 gap-x-8 gap-y-3">
           {categories.map((category) => (
             <motion.button
@@ -76,39 +152,54 @@ export default function ProjectsSection() {
                 duration: 0.5,
               }}
               viewport={{ once: true }}
-              className={`text-sm relative transition-all duration-300 ${
+              className={`text-sm relative transition-all duration-300 px-4 py-2 ${
                 activeCategory === category
-                  ? "text-accent animated-underline"
-                  : "text-stone hover:text-dark"
-              } font-sans`}
+                  ? "text-accent bg-accent/10 border-b-2 border-accent font-medium"
+                  : "text-stone hover:text-dark hover:bg-dark/5 hover:shadow-sm"
+              } font-sans clickable`}
+              aria-label={`Filter by ${category}`}
+              aria-pressed={activeCategory === category}
             >
               {category}
+              {activeCategory === category && (
+                <motion.span
+                  layoutId="activeCategory"
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-accent"
+                  transition={{ duration: 0.3 }}
+                />
+              )}
             </motion.button>
           ))}
         </div>
 
-        {/* Projects grid with asymmetrical layout */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative"
-        >
-          {filteredProjects.length > 0 ? (
-            filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                onViewDetails={handleViewDetails}
-              />
-            ))
-          ) : (
-            <div className="col-span-3 text-center py-20 border border-accent/10">
-              <p className="text-stone font-serif text-lg italic">
-                No projects found in this category
-              </p>
-            </div>
-          )}
-        </motion.div>
+        {/* Projects grid with faster animation on category change */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  onViewDetails={handleViewDetails}
+                />
+              ))
+            ) : (
+              <div className="col-span-3 text-center py-20 border border-accent/10">
+                <p className="text-stone font-serif text-lg italic">
+                  No projects found in this category
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
 
         {/* Minimal footer with project count */}
         <div className="mt-16 pt-8 text-right">

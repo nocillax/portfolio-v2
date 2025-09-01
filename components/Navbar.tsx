@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { KawaiiLogo } from "./KawaiiElements";
 
 const navLinks = [
   { name: "Home", href: "#hero" },
@@ -52,8 +53,13 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-10">
-        <Link href="#hero" className="text-xl md:text-2xl font-serif text-dark">
-          <span className="text-accent">J</span>Doe
+        <Link href="#hero" className="flex items-center gap-2 group">
+          <span className="text-accent/90 group-hover:text-accent transition-colors duration-300">
+            <KawaiiLogo className="w-8 h-8 md:w-10 md:h-10" />
+          </span>
+          <span className="text-xl md:text-2xl font-serif text-dark">
+            <span className="text-accent">N</span>X
+          </span>
         </Link>
 
         {/* Desktop Navigation */}

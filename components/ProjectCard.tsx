@@ -23,30 +23,19 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-50px" }}
       className="group"
     >
-      <div className="bg-white overflow-hidden shadow-sm transition-all duration-500 hover:shadow-md elegant-shadow">
+      <div className="bg-white overflow-hidden border border-transparent hover:border-accent/30 transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 elegant-shadow">
         <div
-          className="aspect-video relative overflow-hidden cursor-pointer"
+          className="aspect-video relative overflow-hidden cursor-pointer hover:cursor-pointer"
           onClick={() => onViewDetails(project)}
         >
           {/* Subtle paper texture overlay */}
           <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
 
-          {/* View project overlay with fade-in animation */}
-          <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-all duration-700 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
-            <motion.div
-              initial={{ y: 10, opacity: 0 }}
-              whileHover={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="px-6 py-2 border border-accent/20 bg-white/90 text-dark flex items-center gap-2 font-sans text-sm tracking-wide">
-                <FiEye className="text-accent" /> View Project
-              </span>
-            </motion.div>
-          </div>
+          {/* No overlay, just cursor change and zoom effect on hover */}
 
-          {/* Placeholder for project image with minimal styling */}
-          <div className="relative w-full h-full flex items-center justify-center bg-paper group-hover:scale-[1.02] transition-transform duration-700">
-            <span className="text-2xl font-serif text-accent/80 italic">
+          {/* Placeholder for project image with stronger hover effect */}
+          <div className="relative w-full h-full flex items-center justify-center bg-paper group-hover:scale-[1.06] transition-transform duration-500">
+            <span className="text-2xl font-serif text-accent/80 italic group-hover:text-accent transition-colors duration-500">
               {project.title}
             </span>
 
@@ -108,30 +97,38 @@ export default function ProjectCard({
           {/* Subtle divider */}
           <div className="w-16 h-px bg-accent/10 my-5"></div>
 
-          {/* Tags with minimal styling */}
+          {/* Tags with minimalist tag styling */}
           <div className="flex flex-wrap gap-3 mt-3">
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-sans text-stone tracking-wide"
+                className="text-xs font-sans text-stone tracking-wide px-2 py-1 bg-accent/5 rounded-sm border border-accent/10"
               >
                 {tag}
               </span>
             ))}
             {project.tags.length > 3 && (
-              <span className="text-xs font-sans text-accent">
+              <span className="text-xs font-sans text-accent px-2 py-1 bg-accent/5 rounded-sm border border-accent/10">
                 +{project.tags.length - 3}
               </span>
             )}
           </div>
 
-          {/* View Details Button with elegant styling */}
+          {/* View Details Button with significantly improved UX */}
           <button
             onClick={() => onViewDetails(project)}
-            className="w-full mt-6 relative border-elegant group"
+            className="w-full mt-6 relative group clickable"
+            aria-label="View project details"
           >
-            <div className="py-2.5 flex items-center justify-center gap-2 font-sans text-sm tracking-wide text-dark hover:text-accent transition-colors duration-500">
-              View Project Details
+            <div className="py-3 flex items-center justify-center gap-3 font-sans text-sm tracking-wide text-dark hover:text-accent transition-colors duration-500 border-t border-transparent group-hover:border-accent/20">
+              <FiEye
+                className="text-accent group-hover:translate-x-2 transition-transform duration-500"
+                size={18}
+              />
+              <span className="relative font-medium">
+                View Project Details
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+              </span>
             </div>
           </button>
         </div>

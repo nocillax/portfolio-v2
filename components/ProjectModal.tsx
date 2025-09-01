@@ -85,13 +85,17 @@ export default function ProjectModal({
           />
           <div className="absolute inset-0 paper-texture opacity-5 pointer-events-none"></div>
 
-          {/* Modal Content */}
+          {/* Modal Content - with an enhanced card growing animation */}
           <motion.div
-            initial={{ scale: 0.95, opacity: 0, y: 10 }}
+            initial={{ scale: 0.5, opacity: 0, y: 0 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.95, opacity: 0, y: 10 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-white overflow-hidden z-10 elegant-shadow"
+            exit={{ scale: 0.5, opacity: 0, y: 0 }}
+            transition={{
+              duration: 0.6,
+              ease: [0.19, 1, 0.22, 1],
+              opacity: { duration: 0.4 },
+            }}
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white overflow-hidden z-10 elegant-shadow border border-accent/20"
           >
             {/* Close Button - Elegant style */}
             <button
@@ -293,9 +297,9 @@ export default function ProjectModal({
                   </div>
                 )}
 
-                {/* Tags with Elegant Styling */}
+                {/* Tags with matching minimalist tag styling */}
                 <div className="mt-10 pt-6 border-t border-accent/10">
-                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  <div className="flex flex-wrap gap-x-3 gap-y-3">
                     {project.tags.map((tag, index) => (
                       <motion.span
                         key={tag}
@@ -303,7 +307,7 @@ export default function ProjectModal({
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.05, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="text-xs font-sans text-stone tracking-wide"
+                        className="text-xs font-sans text-stone tracking-wide px-2 py-1 bg-accent/5 rounded-sm border border-accent/10"
                       >
                         {tag}
                       </motion.span>
