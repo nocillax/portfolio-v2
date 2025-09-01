@@ -2,6 +2,42 @@
 
 An elegant, minimalist portfolio website with Japanese design influences, built using Next.js 14, React, TypeScript, Tailwind CSS, and Framer Motion.
 
+## 📁 Updated Project Structure
+
+The project has been reorganized for better readability and maintainability:
+
+### `/components` Directory
+
+- **`/kawaii`** - Decorative elements and animations
+
+  - `KawaiiShapes.tsx` - SVG shapes (stars, circles, etc.)
+  - `AnimationWrappers.tsx` - Animation containers (floating, bouncing, etc.)
+  - `index.ts` - Exports all kawaii components
+
+- **`/layout`** - Page structure components
+
+  - `Navbar.tsx` - Navigation with scroll detection
+  - `Footer.tsx` - Site footer
+  - `index.ts` - Exports all layout components
+
+- **`/sections`** - Main content sections
+
+  - `HeroSection.tsx` - Landing section
+  - `AboutSection.tsx` - About me and skills
+  - `ContactSection.tsx` - Contact form and information
+  - `index.ts` - Exports all section components
+
+- **`/projects`** - Project-related components
+
+  - `ProjectCard.tsx` - Individual project card
+  - `ProjectModal.tsx` - Detailed project modal
+  - `index.ts` - Exports all project components
+
+- **`/ui`** - Reusable UI components
+  - `ArtisticBackground.tsx` - Decorative background with SVG
+  - `ScrollMouse.tsx` - Mouse scroll indicator
+  - `index.ts` - Exports all UI components
+
 ## 🌿 Design Philosophy
 
 This portfolio embraces the Japanese design principles of:

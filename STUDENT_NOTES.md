@@ -1,0 +1,86 @@
+/\*\*
+
+- STUDENT NOTES - HOW THE PORTFOLIO CODE IS STRUCTURED
+-
+- This is a guide to help understand how the portfolio website is organized.
+-
+- ===== MAIN FOLDER STRUCTURE =====
+-
+- /app - Next.js App Router folder
+- /page.tsx - Main page component that brings everything together
+- /globals.css - Global styles, fonts and animations
+-
+- /components - All React components organized by type
+- /kawaii - Cute decorative elements and their animations
+- /layout - Page structure components (navbar, footer)
+- /sections - Main page sections (hero, about, etc.)
+- /projects - Project-related components
+- /ui - Reusable UI elements
+-
+- /data - Data files like project information
+-
+- ===== ANIMATION SYSTEM =====
+-
+- The portfolio uses two types of animations:
+-
+- 1.  Framer Motion animations - Used for section transitions and interactions
+- - Check components/sections/HeroSection.tsx for examples
+-
+- 2.  Kawaii animations - Decorative elements with various movements
+- - Animation wrappers in components/kawaii/AnimationWrappers.tsx
+- - Shapes defined in components/kawaii/KawaiiShapes.tsx
+-
+- To add a new animated element:
+- import { FloatingElement, KawaiiCircle } from "@/components/kawaii";
+- <FloatingElement delay={0.5} size="sm" x="10%" y="20%">
+-      <KawaiiCircle className="bg-accent/20" />
+- </FloatingElement>
+-
+- ===== STYLING APPROACH =====
+-
+- - Uses Tailwind CSS for styling
+- - Custom color scheme defined in tailwind.config.ts:
+- - primary: "#F7F7F7" (Light off-white background)
+- - accent: "#A67F5D" (Terracotta/warm wood tone)
+- - dark: "#333333" (Soft dark gray for text)
+-
+- - Custom animations defined in tailwind.config.ts
+- - Global styles in globals.css
+-
+- ===== ADDING NEW PROJECTS =====
+-
+- To add a new project, edit data/projects.ts and add an object:
+-
+- {
+- id: "unique-id",
+- title: "Project Title",
+- description: "Description of the project...",
+- category: "Web App",
+- tags: ["React", "TypeScript"],
+- githubUrl: "https://github.com/...",
+- liveUrl: "https://..." (optional)
+- }
+-
+- ===== RESPONSIVE DESIGN =====
+-
+- The site uses these main breakpoints:
+- - Default: Mobile (< 768px)
+- - md: Tablet (≥ 768px)
+- - lg: Desktop (≥ 1024px)
+-
+- Example pattern in components:
+- className="text-base md:text-lg lg:text-xl"
+-
+- ===== COMMON COMPONENT PATTERNS =====
+-
+- Section structure:
+- 1.  Outer section tag with id and background
+- 2.  Container div for width constraints
+- 3.  Section header with title and description
+- 4.  Content specific to that section
+-
+- Animation pattern:
+- - Use motion.div with initial, animate, and transition props
+- - whileInView for scroll-triggered animations
+- - Staggered animations using delay: index _ 0.1
+    _/
