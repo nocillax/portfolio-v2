@@ -51,7 +51,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center bg-white dark:bg-dark relative overflow-hidden pt-20"
     >
       {/* Background texture */}
       <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
@@ -158,32 +158,32 @@ export default function HeroSection() {
             <div className="max-w-3xl">
               {/* Greeting and name */}
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-dark mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-dark dark:text-primary mb-2">
                   Hi, I'm{" "}
-                  <span className="font-serif italic text-accent relative inline-block tracking-wider">
+                  <span className="font-serif italic text-accent dark:text-accent-dark relative inline-block tracking-wider">
                     Asif Chowdhury
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30"></span>
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30 dark:bg-accent-dark/40"></span>
                   </span>
                 </h2>
               </div>
 
               {/* Main heading with animated underline */}
               <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-dark leading-tight mb-8"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-dark dark:text-primary leading-tight mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               >
                 Creating purposeful digital experiences through{" "}
                 <motion.span
-                  className="text-accent relative inline-block"
+                  className="text-accent dark:text-accent-dark relative inline-block"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.8, delay: 0.8 }}
                 >
                   thoughtful
                   <motion.span
-                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30"
+                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30 dark:bg-accent-dark/40"
                     initial={{ scaleX: 0, originX: 0 }}
                     animate={{ scaleX: 1, originX: 0 }}
                     transition={{ duration: 1, delay: 1.2 }}
@@ -195,7 +195,7 @@ export default function HeroSection() {
               {/* Introduction text and CTA buttons */}
               <div className="mt-10">
                 <motion.p
-                  className="text-stone text-lg md:text-xl mb-10 font-sans max-w-lg"
+                  className="text-stone dark:text-stone-dark text-lg md:text-xl mb-10 font-sans max-w-lg"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.6 }}
@@ -213,14 +213,14 @@ export default function HeroSection() {
                 >
                   <a
                     href="#projects"
-                    className="group flex items-center gap-2 px-8 py-3 bg-dark text-white font-sans text-base font-medium border border-dark hover:bg-white hover:text-dark transition-colors duration-300 circle-reveal"
+                    className="group flex items-center gap-2 px-8 py-3 bg-dark dark:bg-accent-dark text-white font-sans text-base font-medium border border-dark dark:border-accent-dark hover:bg-white dark:hover:bg-dark hover:text-dark dark:hover:text-primary transition-colors duration-300 circle-reveal"
                   >
                     View Projects
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                   </a>
                   <a
                     href="#contact"
-                    className="px-8 py-3 text-dark border border-dark font-sans text-base font-medium hover:bg-dark hover:text-white transition-colors duration-300 ink-brush"
+                    className="px-8 py-3 text-dark dark:text-primary border border-dark dark:border-stone-dark font-sans text-base font-medium hover:bg-dark dark:hover:bg-dark-paper hover:text-white dark:hover:text-primary transition-colors duration-300 ink-brush"
                   >
                     Contact
                   </a>
@@ -231,13 +231,13 @@ export default function HeroSection() {
 
           {/* Right column - Tech stack */}
           <motion.div
-            className="hidden lg:flex flex-col items-start space-y-6 border-l border-accent/20 pl-8 py-8"
+            className="hidden lg:flex flex-col items-start space-y-6 border-l border-accent/20 dark:border-accent-dark/20 pl-8 py-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <div className="mb-4">
-              <span className="text-xs uppercase tracking-widest text-accent font-sans">
+              <span className="text-xs uppercase tracking-widest text-accent dark:text-accent-dark font-sans">
                 Technologies
               </span>
             </div>
@@ -252,7 +252,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   className="group"
                 >
-                  <span className="text-lg font-mono text-dark group-hover:text-accent transition-colors duration-300">
+                  <span className="text-lg font-mono text-dark dark:text-primary group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-300">
                     {tech}
                   </span>
                 </motion.div>
@@ -260,11 +260,13 @@ export default function HeroSection() {
             </div>
 
             {/* Location information */}
-            <div className="mt-8 pt-8 border-t border-accent/20 w-full">
-              <span className="text-xs uppercase tracking-widest text-stone font-sans block mb-2">
+            <div className="mt-8 pt-8 border-t border-accent/20 dark:border-accent-dark/20 w-full">
+              <span className="text-xs uppercase tracking-widest text-stone dark:text-stone-dark font-sans block mb-2">
                 Based in
               </span>
-              <span className="font-serif text-lg text-dark">Tokyo, Japan</span>
+              <span className="font-serif text-lg text-dark dark:text-primary">
+                Tokyo, Japan
+              </span>
             </div>
           </motion.div>
         </div>

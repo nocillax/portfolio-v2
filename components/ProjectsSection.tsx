@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./projects/ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projects, Project } from "@/data/projects";
 import {
@@ -49,7 +49,10 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-white relative">
+    <section
+      id="projects"
+      className="py-24 md:py-32 bg-white dark:bg-dark relative"
+    >
       {/* Background elements */}
       <div className="absolute inset-0 paper-texture opacity-5 pointer-events-none"></div>
 
@@ -122,17 +125,17 @@ export default function ProjectsSection() {
         >
           {/* Asymmetrical layout with left alignment */}
           <div className="max-w-md relative">
-            <span className="block text-sm uppercase tracking-widest text-accent mb-3 font-sans">
+            <span className="block text-sm uppercase tracking-widest text-accent dark:text-accent-dark mb-3 font-sans">
               Selected Works
             </span>
 
-            <h2 className="text-3xl md:text-4xl mb-5 font-serif text-dark">
+            <h2 className="text-3xl md:text-4xl mb-5 font-serif text-dark dark:text-primary">
               Projects
             </h2>
 
-            <div className="w-12 h-px bg-accent/30 my-5"></div>
+            <div className="w-12 h-px bg-accent/30 dark:bg-accent-dark/30 my-5"></div>
 
-            <p className="text-stone leading-relaxed font-sans">
+            <p className="text-stone dark:text-stone-dark leading-relaxed font-sans">
               A collection of my recent work spanning web development, design
               systems, and interactive experiences.
             </p>
@@ -154,8 +157,8 @@ export default function ProjectsSection() {
               viewport={{ once: true }}
               className={`text-sm relative transition-all duration-300 px-4 py-2 ${
                 activeCategory === category
-                  ? "text-accent bg-accent/10 border-b-2 border-accent font-medium"
-                  : "text-stone hover:text-dark hover:bg-dark/5 hover:shadow-sm"
+                  ? "text-accent dark:text-accent-dark bg-accent/10 dark:bg-accent-dark/10 border-b-2 border-accent dark:border-accent-dark font-medium"
+                  : "text-stone dark:text-stone-dark hover:text-dark dark:hover:text-primary hover:bg-dark/5 dark:hover:bg-dark-subtle/20 hover:shadow-sm"
               } font-sans clickable`}
               aria-label={`Filter by ${category}`}
               aria-pressed={activeCategory === category}
@@ -164,7 +167,7 @@ export default function ProjectsSection() {
               {activeCategory === category && (
                 <motion.span
                   layoutId="activeCategory"
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-accent"
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-accent dark:bg-accent-dark"
                   transition={{ duration: 0.3 }}
                 />
               )}
@@ -192,8 +195,8 @@ export default function ProjectsSection() {
                 />
               ))
             ) : (
-              <div className="col-span-3 text-center py-20 border border-accent/10">
-                <p className="text-stone font-serif text-lg italic">
+              <div className="col-span-3 text-center py-20 border border-accent/10 dark:border-accent-dark/10">
+                <p className="text-stone dark:text-stone-dark font-serif text-lg italic">
                   No projects found in this category
                 </p>
               </div>
@@ -203,7 +206,7 @@ export default function ProjectsSection() {
 
         {/* Minimal footer with project count */}
         <div className="mt-16 pt-8 text-right">
-          <span className="text-xs uppercase tracking-widest text-stone font-sans">
+          <span className="text-xs uppercase tracking-widest text-stone dark:text-stone-dark font-sans">
             Displaying {filteredProjects.length} projects
           </span>
         </div>

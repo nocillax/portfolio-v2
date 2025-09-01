@@ -6,3 +6,4 @@
 
 export { default as ScrollMouse } from "./ScrollMouse";
 export { default as ArtisticBackground } from "./ArtisticBackground";
+export { ThemeToggle } from "./theme";

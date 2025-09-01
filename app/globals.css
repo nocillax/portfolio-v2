@@ -16,6 +16,13 @@ body {
   font-family: "Noto Sans", sans-serif;
   letter-spacing: 0.025em;
   background-attachment: fixed;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark body {
+  background-color: #1c1c1c;
+  color: #f7f7f7;
 }
 
 /* Prevent text selection and I-beam cursor */
@@ -53,13 +60,34 @@ h6 {
   background-color: #f7f7f7;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background-color: #242424;
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(166, 127, 93, 0.2);
   border-radius: 9999px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 156, 120, 0.2);
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(166, 127, 93, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(200, 156, 120, 0.4);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 /* Component styles */
@@ -124,6 +152,11 @@ h6 {
   background-color: rgba(166, 127, 93, 0.2);
 }
 
+.dark .elegant-divider::before,
+.dark .elegant-divider::after {
+  background-color: rgba(200, 156, 120, 0.2);
+}
+
 .elegant-divider > span {
   padding: 0 1rem;
   color: #6b6256;
@@ -132,10 +165,19 @@ h6 {
   font-style: italic;
 }
 
+.dark .elegant-divider > span {
+  color: #a3a3a3;
+}
+
 /* Texture overlay */
 .paper-texture {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
   opacity: 0.25;
+}
+
+.dark .paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23FFFFFF' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.15;
 }
 
 /* Custom animation classes */
@@ -159,6 +201,10 @@ h6 {
   height: 1px;
   background-color: #a67f5d;
   transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dark .animated-underline::after {
+  background-color: #c89c78;
 }
 
 .animated-underline:hover::after {
@@ -302,6 +348,19 @@ h6 {
 
 .elegant-shadow {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dark .elegant-shadow-dark {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 2px rgba(200, 156, 120, 0.1);
+}
+
+/* Add golden glow effect for hover in both light and dark modes */
+.hover\:shadow-accent\/20:hover {
+  box-shadow: 0 8px 20px rgba(166, 127, 93, 0.1), 0 0 4px rgba(166, 127, 93, 0.2);
+}
+
+.dark .hover\:shadow-accent-dark\/20:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 4px rgba(200, 156, 120, 0.3);
 }
 
 .text-vertical {

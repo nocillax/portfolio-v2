@@ -95,20 +95,20 @@ export default function ProjectModal({
               ease: [0.19, 1, 0.22, 1],
               opacity: { duration: 0.4 },
             }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-white overflow-hidden z-10 elegant-shadow border border-accent/20"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-dark-paper overflow-hidden z-10 elegant-shadow-dark border border-accent/20 dark:border-accent-dark/20"
           >
             {/* Close Button - Elegant style */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300"
+              className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300"
               aria-label="Close modal"
             >
               <FiX size={20} />
             </button>
 
-            <div className="overflow-y-auto max-h-[90vh]">
+            <div className="overflow-y-auto max-h-[90vh] scrollbar-hide">
               {/* Image Gallery */}
-              <div className="relative aspect-video bg-white">
+              <div className="relative aspect-video bg-white dark:bg-dark-paper">
                 {project.images && project.images.length > 0 ? (
                   <>
                     {/* Main Image with elegant fade effect */}
@@ -119,11 +119,11 @@ export default function ProjectModal({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.7 }}
-                        className="w-full h-full flex items-center justify-center bg-gray-100"
+                        className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-dark-secondary"
                       >
                         {/* Image placeholder with refined styling */}
-                        <div className="w-full h-full bg-paper flex items-center justify-center">
-                          <span className="text-2xl font-serif italic text-accent/70">
+                        <div className="w-full h-full bg-paper dark:bg-dark-secondary flex items-center justify-center">
+                          <span className="text-2xl font-serif italic text-accent/70 dark:text-accent-dark/70">
                             {project.title}
                           </span>
                         </div>
@@ -146,14 +146,14 @@ export default function ProjectModal({
                       <>
                         <button
                           onClick={prevImage}
-                          className="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300 bg-white/90 rounded-full shadow-sm"
+                          className="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300 bg-white/90 dark:bg-dark-secondary/90 rounded-full shadow-sm"
                           aria-label="Previous image"
                         >
                           <FiChevronLeft size={24} />
                         </button>
                         <button
                           onClick={nextImage}
-                          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300 bg-white/90 rounded-full shadow-sm"
+                          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300 bg-white/90 dark:bg-dark-secondary/90 rounded-full shadow-sm"
                           aria-label="Next image"
                         >
                           <FiChevronRight size={24} />
@@ -171,8 +171,8 @@ export default function ProjectModal({
                               <div
                                 className={`w-2 h-2 rounded-full ${
                                   currentImageIndex === index
-                                    ? "bg-accent"
-                                    : "bg-stone/30"
+                                    ? "bg-accent dark:bg-accent-dark"
+                                    : "bg-stone/30 dark:bg-stone-dark/30"
                                 }`}
                               ></div>
                             </button>
@@ -183,8 +183,8 @@ export default function ProjectModal({
                   </>
                 ) : (
                   // Fallback if no gallery images
-                  <div className="w-full h-full bg-paper flex items-center justify-center">
-                    <span className="text-2xl font-serif italic text-accent/70">
+                  <div className="w-full h-full bg-paper dark:bg-dark-secondary flex items-center justify-center">
+                    <span className="text-2xl font-serif italic text-accent/70 dark:text-accent-dark/70">
                       {project.title}
                     </span>
                   </div>
@@ -192,14 +192,14 @@ export default function ProjectModal({
               </div>
 
               {/* Content - Elegant styled */}
-              <div className="p-6 md:p-10 bg-white">
+              <div className="p-6 md:p-10 bg-white dark:bg-dark-paper">
                 {/* Title Section with Elegant Design */}
                 <div className="flex flex-wrap justify-between items-start gap-6 mb-10 relative">
                   <div className="flex-1">
-                    <span className="text-xs uppercase font-sans tracking-widest text-accent mb-2 block">
+                    <span className="text-xs uppercase font-sans tracking-widest text-accent dark:text-accent-dark mb-2 block">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-serif text-dark">
+                    <h3 className="text-2xl md:text-3xl font-serif text-dark dark:text-primary">
                       {project.title}
                     </h3>
                   </div>
@@ -210,7 +210,7 @@ export default function ProjectModal({
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark hover:text-accent transition-colors duration-300"
+                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300"
                         aria-label="GitHub Repository"
                       >
                         <FiGithub size={18} />
@@ -222,7 +222,7 @@ export default function ProjectModal({
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark hover:text-accent transition-colors duration-300"
+                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300"
                         aria-label="Live Demo"
                       >
                         <FiExternalLink size={18} />
@@ -234,8 +234,10 @@ export default function ProjectModal({
 
                 {/* Detailed Description with Elegant styling */}
                 <div className="mb-12 relative">
-                  <h4 className="text-lg font-serif mb-4">About the Project</h4>
-                  <p className="text-stone leading-relaxed font-sans">
+                  <h4 className="text-lg font-serif mb-4 text-dark dark:text-primary">
+                    About the Project
+                  </h4>
+                  <p className="text-stone dark:text-stone-dark leading-relaxed font-sans">
                     {project.longDescription || project.description}
                   </p>
                 </div>
@@ -244,13 +246,15 @@ export default function ProjectModal({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
                   {/* Features */}
                   {project.features && project.features.length > 0 && (
-                    <div className="border-l border-accent/10 pl-6">
-                      <h4 className="text-lg font-serif mb-4">Key Features</h4>
+                    <div className="border-l border-accent/10 dark:border-accent-dark/10 pl-6">
+                      <h4 className="text-lg font-serif mb-4 text-dark dark:text-primary">
+                        Key Features
+                      </h4>
                       <ul className="space-y-3">
                         {project.features.map((feature, index) => (
                           <motion.li
                             key={index}
-                            className="text-stone font-sans"
+                            className="text-stone dark:text-stone-dark font-sans"
                             initial={{ opacity: 0, x: -5 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -265,8 +269,10 @@ export default function ProjectModal({
 
                   {/* Technologies */}
                   {project.technologies && project.technologies.length > 0 && (
-                    <div className="border-l border-accent/10 pl-6">
-                      <h4 className="text-lg font-serif mb-4">Technologies</h4>
+                    <div className="border-l border-accent/10 dark:border-accent-dark/10 pl-6">
+                      <h4 className="text-lg font-serif mb-4 text-dark dark:text-primary">
+                        Technologies
+                      </h4>
                       <div className="flex flex-wrap gap-y-3 gap-x-6">
                         {project.technologies.map((tech, index) => (
                           <motion.span
@@ -275,7 +281,7 @@ export default function ProjectModal({
                             whileInView={{ opacity: 1 }}
                             transition={{ delay: index * 0.05, duration: 0.5 }}
                             viewport={{ once: true }}
-                            className="text-stone font-mono text-sm"
+                            className="text-stone dark:text-stone-dark font-mono text-sm"
                           >
                             {tech}
                           </motion.span>
@@ -288,17 +294,17 @@ export default function ProjectModal({
                 {/* Challenges - Elegant Box */}
                 {project.challenges && (
                   <div className="mt-10 mb-12">
-                    <h4 className="text-lg font-serif mb-4">
+                    <h4 className="text-lg font-serif mb-4 text-dark dark:text-primary">
                       Challenges & Solutions
                     </h4>
-                    <p className="text-stone font-sans leading-relaxed p-6 bg-paper">
+                    <p className="text-stone dark:text-stone-dark font-sans leading-relaxed p-6 bg-paper dark:bg-dark-secondary">
                       {project.challenges}
                     </p>
                   </div>
                 )}
 
                 {/* Tags with matching minimalist tag styling */}
-                <div className="mt-10 pt-6 border-t border-accent/10">
+                <div className="mt-10 pt-6 border-t border-accent/10 dark:border-accent-dark/10">
                   <div className="flex flex-wrap gap-x-3 gap-y-3">
                     {project.tags.map((tag, index) => (
                       <motion.span
@@ -307,7 +313,7 @@ export default function ProjectModal({
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: index * 0.05, duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="text-xs font-sans text-stone tracking-wide px-2 py-1 bg-accent/5 rounded-sm border border-accent/10"
+                        className="text-xs font-sans text-stone dark:text-stone-dark tracking-wide px-2 py-1 bg-accent/5 dark:bg-accent-dark/5 rounded-sm border border-accent/10 dark:border-accent-dark/10"
                       >
                         {tag}
                       </motion.span>

@@ -10,7 +10,7 @@ export default function AboutSection() {
   const techStacks = [
     {
       category: "Front End",
-      icon: <FiLayout className="text-accent w-5 h-5" />,
+      icon: <FiLayout className="text-accent dark:text-accent-dark w-5 h-5" />,
       technologies: [
         "React",
         "Next.js",
@@ -21,23 +21,25 @@ export default function AboutSection() {
     },
     {
       category: "Back End",
-      icon: <FiServer className="text-accent w-5 h-5" />,
+      icon: <FiServer className="text-accent dark:text-accent-dark w-5 h-5" />,
       technologies: ["Node.js", "Express", "REST APIs", "GraphQL"],
     },
     {
       category: "Database",
-      icon: <FiDatabase className="text-accent w-5 h-5" />,
+      icon: (
+        <FiDatabase className="text-accent dark:text-accent-dark w-5 h-5" />
+      ),
       technologies: ["MongoDB", "PostgreSQL", "Redis", "Prisma"],
     },
     {
       category: "Tools & Others",
-      icon: <FiTool className="text-accent w-5 h-5" />,
+      icon: <FiTool className="text-accent dark:text-accent-dark w-5 h-5" />,
       technologies: ["Git", "Docker", "CI/CD", "Jest", "Cypress", "Figma"],
     },
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-white">
+    <section id="about" className="py-24 md:py-32 bg-white dark:bg-dark">
       <div className="container mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Left column - Heading and text */}
@@ -48,19 +50,19 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <span className="block text-sm uppercase tracking-widest text-accent font-sans mb-2">
+            <span className="block text-sm uppercase tracking-widest text-accent dark:text-accent-dark font-sans mb-2">
               About me
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-dark mb-8">
+            <h2 className="text-3xl md:text-4xl font-serif text-dark dark:text-primary mb-8">
               Design-minded developer focused on building elegant, user-centered
               experiences
             </h2>
 
             {/* Profile image - centered in mobile view */}
             <div className="mt-12 mb-8 relative w-40 h-40 md:w-56 md:h-56 overflow-hidden mx-auto lg:mx-0">
-              <div className="w-full h-full border border-accent/20 flex items-center justify-center bg-paper">
+              <div className="w-full h-full border border-accent/20 dark:border-accent-dark/30 flex items-center justify-center bg-paper dark:bg-dark-paper">
                 {/* This would be replaced with an actual image in a real portfolio */}
-                <span className="text-3xl font-serif italic text-accent">
+                <span className="text-3xl font-serif italic text-accent dark:text-accent-dark">
                   JD
                 </span>
                 {/* Example of how to use Next.js Image:
@@ -73,7 +75,7 @@ export default function AboutSection() {
                 />
                 */}
               </div>
-              <div className="absolute -bottom-2 -right-2 w-20 h-20 border border-accent/20 z-[-1]"></div>
+              <div className="absolute -bottom-2 -right-2 w-20 h-20 border border-accent/20 dark:border-accent-dark/30 z-[-1]"></div>
             </div>
           </motion.div>
 
@@ -85,20 +87,20 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-dark text-lg font-medium mb-6 font-sans">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
+              <p className="text-dark dark:text-primary text-lg font-medium mb-6 font-sans">
                 I'm a full-stack developer with 5+ years of experience creating
                 thoughtful digital experiences that blend form and function.
               </p>
 
-              <p className="text-stone mb-6 font-sans">
+              <p className="text-stone dark:text-stone-dark mb-6 font-sans">
                 My approach combines clean, minimalist design principles with
                 robust technical implementation. I believe in creating software
                 that not only solves problems effectively but also provides an
                 intuitive and elegant user experience.
               </p>
 
-              <p className="text-stone mb-6 font-sans">
+              <p className="text-stone dark:text-stone-dark mb-6 font-sans">
                 With a background in Computer Science and a passion for design,
                 I bring a holistic perspective to every project. I focus on
                 writing clean, maintainable code that scales well and adapts to
@@ -106,8 +108,8 @@ export default function AboutSection() {
               </p>
 
               {/* Tech stacks in a more elegant way */}
-              <div className="mt-12 pt-6 border-t border-accent/10">
-                <h3 className="text-lg font-serif text-dark mb-8">
+              <div className="mt-12 pt-6 border-t border-accent/10 dark:border-accent-dark/10">
+                <h3 className="text-lg font-serif text-dark dark:text-primary mb-8">
                   Technical Expertise
                 </h3>
 
@@ -122,7 +124,7 @@ export default function AboutSection() {
                     >
                       <div className="flex items-center gap-3 mb-4">
                         {stack.icon}
-                        <h4 className="font-sans font-medium text-dark">
+                        <h4 className="font-sans font-medium text-dark dark:text-primary">
                           {stack.category}
                         </h4>
                       </div>
@@ -130,7 +132,7 @@ export default function AboutSection() {
                         {stack.technologies.map((tech) => (
                           <li
                             key={tech}
-                            className="text-stone font-sans text-sm group hover:text-dark transition-colors duration-300 cursor-default"
+                            className="text-stone dark:text-stone-dark font-sans text-sm group hover:text-dark dark:hover:text-primary transition-colors duration-300 cursor-default"
                           >
                             {tech}
                           </li>

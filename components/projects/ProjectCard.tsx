@@ -40,7 +40,7 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-50px" }}
       className="group"
     >
-      <div className="bg-white overflow-hidden border border-transparent hover:border-accent/30 transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 elegant-shadow">
+      <div className="bg-white dark:bg-dark-paper overflow-hidden border border-transparent hover:border-accent/30 dark:hover:border-accent-dark/30 transition-all duration-500 hover:shadow-xl hover:shadow-accent/20 dark:hover:shadow-accent-dark/20 transform hover:-translate-y-2 elegant-shadow dark:elegant-shadow-dark">
         {/* Project image/preview area */}
         <div
           className="aspect-video relative overflow-hidden cursor-pointer hover:cursor-pointer"
@@ -52,8 +52,8 @@ export default function ProjectCard({
           {/* No overlay, just cursor change and zoom effect on hover */}
 
           {/* Placeholder for project image with stronger hover effect */}
-          <div className="relative w-full h-full flex items-center justify-center bg-paper group-hover:scale-[1.06] transition-transform duration-500">
-            <span className="text-2xl font-serif text-accent/80 italic group-hover:text-accent transition-colors duration-500">
+          <div className="relative w-full h-full flex items-center justify-center bg-paper dark:bg-dark-secondary group-hover:scale-[1.06] group-hover:bg-paper/90 group-hover:border-accent/40 dark:group-hover:bg-dark-secondary/90 dark:group-hover:border-accent-dark/40 transition-all duration-500">
+            <span className="text-2xl font-serif text-accent/80 dark:text-accent-dark/80 italic group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-500 group-hover:opacity-100">
               {project.title}
             </span>
 
@@ -71,14 +71,16 @@ export default function ProjectCard({
         </div>
 
         {/* Project details section */}
-        <div className="p-6 bg-white">
+        <div className="p-6 bg-white dark:bg-dark-paper">
           {/* Header with category, title and links */}
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs uppercase font-sans tracking-widest text-accent">
+              <span className="text-xs uppercase font-sans tracking-widest text-accent dark:text-accent-dark">
                 {project.category}
               </span>
-              <h3 className="text-xl font-serif mt-1">{project.title}</h3>
+              <h3 className="text-xl font-serif mt-1 text-dark dark:text-primary">
+                {project.title}
+              </h3>
             </div>
 
             {/* External links */}
@@ -88,7 +90,7 @@ export default function ProjectCard({
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark hover:text-accent transition-colors duration-300"
+                  className="text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300"
                   aria-label="GitHub Repository"
                 >
                   <FiGithub size={18} />
@@ -99,7 +101,7 @@ export default function ProjectCard({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark hover:text-accent transition-colors duration-300"
+                  className="text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-300"
                   aria-label="Live Demo"
                 >
                   <FiExternalLink size={18} />
@@ -109,25 +111,25 @@ export default function ProjectCard({
           </div>
 
           {/* Project description */}
-          <p className="mt-4 text-stone text-sm line-clamp-3 leading-relaxed font-sans">
+          <p className="mt-4 text-stone dark:text-stone-dark text-sm line-clamp-3 leading-relaxed font-sans">
             {project.description}
           </p>
 
           {/* Divider */}
-          <div className="w-16 h-px bg-accent/10 my-5"></div>
+          <div className="w-16 h-px bg-accent/10 dark:bg-accent-dark/10 my-5"></div>
 
           {/* Project tags with max display limit */}
           <div className="flex flex-wrap gap-3 mt-3">
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-sans text-stone tracking-wide px-2 py-1 bg-accent/5 rounded-sm border border-accent/10"
+                className="text-xs font-sans text-stone dark:text-stone-dark tracking-wide px-2 py-1 bg-accent/5 dark:bg-accent-dark/5 rounded-sm border border-accent/10 dark:border-accent-dark/10"
               >
                 {tag}
               </span>
             ))}
             {project.tags.length > 3 && (
-              <span className="text-xs font-sans text-accent px-2 py-1 bg-accent/5 rounded-sm border border-accent/10">
+              <span className="text-xs font-sans text-accent dark:text-accent-dark px-2 py-1 bg-accent/5 dark:bg-accent-dark/5 rounded-sm border border-accent/10 dark:border-accent-dark/10">
                 +{project.tags.length - 3}
               </span>
             )}
@@ -139,14 +141,14 @@ export default function ProjectCard({
             className="w-full mt-6 relative group clickable"
             aria-label="View project details"
           >
-            <div className="py-3 flex items-center justify-center gap-3 font-sans text-sm tracking-wide text-dark hover:text-accent transition-colors duration-500 border-t border-transparent group-hover:border-accent/20">
+            <div className="py-3 flex items-center justify-center gap-3 font-sans text-sm tracking-wide text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-500 border-t border-transparent group-hover:border-accent/30 dark:group-hover:border-accent-dark/30">
               <FiEye
-                className="text-accent group-hover:translate-x-2 transition-transform duration-500"
+                className="text-accent dark:text-accent-dark group-hover:translate-x-2 transition-transform duration-500"
                 size={18}
               />
               <span className="relative font-medium">
                 View Project Details
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent dark:bg-accent-dark scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
               </span>
             </div>
           </button>

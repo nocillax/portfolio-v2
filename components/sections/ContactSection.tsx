@@ -68,7 +68,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-paper">
+    <section
+      id="contact"
+      className="py-24 md:py-32 bg-paper dark:bg-dark-paper"
+    >
       <div className="container mx-auto px-6 md:px-10">
         {/* Section header with minimalist style */}
         <motion.div
@@ -78,14 +81,14 @@ export default function ContactSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-md mb-16"
         >
-          <span className="block text-sm uppercase tracking-widest text-accent font-sans mb-2">
+          <span className="block text-sm uppercase tracking-widest text-accent dark:text-accent-dark font-sans mb-2">
             Contact
           </span>
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-6">
+          <h2 className="text-3xl md:text-4xl font-serif text-dark dark:text-primary mb-6">
             Let's discuss your next project
           </h2>
-          <div className="w-12 h-px bg-accent/30 my-6"></div>
-          <p className="text-stone font-sans">
+          <div className="w-12 h-px bg-accent/30 dark:bg-accent-dark/30 my-6"></div>
+          <p className="text-stone dark:text-stone-dark font-sans">
             I'm currently available for freelance projects or full-time
             positions. Feel free to reach out if you're looking for a developer
             focused on creating elegant, efficient, and user-friendly
@@ -107,7 +110,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-dark mb-2 font-sans"
+                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
                 >
                   Name
                 </label>
@@ -118,7 +121,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
+                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
                 />
               </div>
 
@@ -126,7 +129,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-dark mb-2 font-sans"
+                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
                 >
                   Email
                 </label>
@@ -137,7 +140,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
+                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
                 />
               </div>
 
@@ -145,7 +148,7 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-dark mb-2 font-sans"
+                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
                 >
                   Message
                 </label>
@@ -156,7 +159,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
+                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
                 ></textarea>
               </div>
 
@@ -164,7 +167,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex items-center gap-2 px-8 py-3 bg-dark text-white font-sans text-base font-medium border border-dark hover:bg-white hover:text-dark transition-colors duration-300 disabled:opacity-70 disabled:pointer-events-none"
+                className="group flex items-center gap-2 px-8 py-3 bg-dark dark:bg-accent-dark text-white font-sans text-base font-medium border border-dark dark:border-accent-dark hover:bg-white dark:hover:bg-dark hover:text-dark dark:hover:text-primary transition-colors duration-300 disabled:opacity-70 disabled:pointer-events-none"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -172,7 +175,7 @@ export default function ContactSection() {
 
               {/* Form submission feedback message */}
               {submitMessage && (
-                <div className="mt-4 p-4 bg-accent/5 text-dark border border-accent/20 font-sans">
+                <div className="mt-4 p-4 bg-accent/5 dark:bg-accent-dark/5 text-dark dark:text-primary border border-accent/20 dark:border-accent-dark/20 font-sans">
                   {submitMessage}
                 </div>
               )}
@@ -185,27 +188,30 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-2 lg:border-l lg:border-accent/20 lg:pl-10"
+            className="lg:col-span-2 lg:border-l lg:border-accent/20 dark:lg:border-accent-dark/20 lg:pl-10"
           >
             <div className="space-y-8">
               {/* Contact information */}
               <div>
-                <h3 className="font-serif text-xl text-dark mb-6">
+                <h3 className="font-serif text-xl text-dark dark:text-primary mb-6">
                   Contact Information
                 </h3>
                 <div className="space-y-6">
                   {/* Email contact */}
                   <div className="flex items-start space-x-4">
                     <div className="mt-1">
-                      <FiMail size={20} className="text-accent" />
+                      <FiMail
+                        size={20}
+                        className="text-accent dark:text-accent-dark"
+                      />
                     </div>
                     <div>
-                      <h4 className="font-sans font-medium text-dark mb-1">
+                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
                         Email
                       </h4>
                       <a
                         href="mailto:contact@example.com"
-                        className="text-stone hover:text-accent transition-colors font-sans"
+                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
                         contact@example.com
                       </a>
@@ -215,17 +221,20 @@ export default function ContactSection() {
                   {/* LinkedIn contact */}
                   <div className="flex items-start space-x-4">
                     <div className="mt-1">
-                      <FiLinkedin size={20} className="text-accent" />
+                      <FiLinkedin
+                        size={20}
+                        className="text-accent dark:text-accent-dark"
+                      />
                     </div>
                     <div>
-                      <h4 className="font-sans font-medium text-dark mb-1">
+                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
                         LinkedIn
                       </h4>
                       <a
                         href="https://linkedin.com/in/example"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-stone hover:text-accent transition-colors font-sans"
+                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
                         linkedin.com/in/example
                       </a>
@@ -235,17 +244,20 @@ export default function ContactSection() {
                   {/* WhatsApp contact */}
                   <div className="flex items-start space-x-4">
                     <div className="mt-1">
-                      <FaWhatsapp size={20} className="text-accent" />
+                      <FaWhatsapp
+                        size={20}
+                        className="text-accent dark:text-accent-dark"
+                      />
                     </div>
                     <div>
-                      <h4 className="font-sans font-medium text-dark mb-1">
+                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
                         WhatsApp
                       </h4>
                       <a
                         href="https://wa.me/1234567890"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-stone hover:text-accent transition-colors font-sans"
+                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
                         +1 (234) 567-890
                       </a>
@@ -255,14 +267,16 @@ export default function ContactSection() {
               </div>
 
               {/* Social links */}
-              <div className="pt-8 border-t border-accent/20">
-                <h3 className="font-serif text-lg text-dark mb-4">Connect</h3>
+              <div className="pt-8 border-t border-accent/20 dark:border-accent-dark/20">
+                <h3 className="font-serif text-lg text-dark dark:text-primary mb-4">
+                  Connect
+                </h3>
                 <div className="flex space-x-5">
                   <a
                     href="https://github.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-stone hover:text-accent transition-colors"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
                     aria-label="GitHub"
                   >
                     <FiGithub size={22} />
@@ -271,7 +285,7 @@ export default function ContactSection() {
                     href="https://linkedin.com/in/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-stone hover:text-accent transition-colors"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
                     aria-label="LinkedIn"
                   >
                     <FiLinkedin size={22} />
@@ -280,7 +294,7 @@ export default function ContactSection() {
                     href="https://facebook.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-stone hover:text-accent transition-colors"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
                     aria-label="Facebook"
                   >
                     <FiFacebook size={22} />
@@ -289,7 +303,7 @@ export default function ContactSection() {
                     href="https://wa.me/1234567890"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-stone hover:text-accent transition-colors"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
                     aria-label="WhatsApp"
                   >
                     <FaWhatsapp size={22} />
@@ -298,8 +312,8 @@ export default function ContactSection() {
               </div>
 
               {/* Location */}
-              <div className="pt-8 border-t border-accent/20">
-                <p className="text-stone font-sans text-sm italic">
+              <div className="pt-8 border-t border-accent/20 dark:border-accent-dark/20">
+                <p className="text-stone dark:text-stone-dark font-sans text-sm italic">
                   Based in Tokyo, Japan.
                   <br />
                   Available for remote work worldwide.
