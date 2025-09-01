@@ -71,97 +71,107 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6"
         >
-          {/* Backdrop */}
+          {/* Backdrop with subtle paper texture */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8 }}
+            animate={{ opacity: 0.95 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black"
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 bg-dark/80"
             onClick={onClose}
           />
+          <div className="absolute inset-0 paper-texture opacity-5 pointer-events-none"></div>
 
           {/* Modal Content */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.95, opacity: 0, y: 10 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: "spring", damping: 25 }}
-            className="relative w-full max-w-5xl max-h-[90vh] bg-primary border border-secondary rounded-xl overflow-hidden shadow-2xl z-10"
+            exit={{ scale: 0.95, opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white overflow-hidden z-10 elegant-shadow"
           >
-            {/* Close Button */}
+            {/* Close Button - Elegant style */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-dark bg-opacity-80 flex items-center justify-center text-white hover:bg-accent transition-colors"
+              className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300"
               aria-label="Close modal"
             >
-              <FiX size={24} />
+              <FiX size={20} />
             </button>
 
             <div className="overflow-y-auto max-h-[90vh]">
               {/* Image Gallery */}
-              <div className="relative aspect-video bg-dark">
+              <div className="relative aspect-video bg-white">
                 {project.images && project.images.length > 0 ? (
                   <>
-                    {/* Main Image */}
+                    {/* Main Image with elegant fade effect */}
                     <div className="w-full h-full relative overflow-hidden">
                       <motion.div
                         key={currentImageIndex}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="w-full h-full flex items-center justify-center bg-dark"
+                        transition={{ duration: 0.7 }}
+                        className="w-full h-full flex items-center justify-center bg-gray-100"
                       >
-                        {/* Image placeholder - would be replaced with actual images */}
-                        <div className="w-full h-full bg-gradient-to-br from-dark to-secondary flex items-center justify-center">
-                          <span className="text-2xl font-bold text-accent">
-                            {project.title} - Image {currentImageIndex + 1}
+                        {/* Image placeholder with refined styling */}
+                        <div className="w-full h-full bg-paper flex items-center justify-center">
+                          <span className="text-2xl font-serif italic text-accent/70">
+                            {project.title}
                           </span>
                         </div>
-                        {/* Real implementation would use: 
-                        <Image 
-                          src={project.images[currentImageIndex]} 
-                          alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-                          fill
-                          className="object-contain"
-                        /> 
+                        {/* For real implementation: 
+                        <div className="relative w-full h-full">
+                          <Image 
+                            src={project.images[currentImageIndex]} 
+                            alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                            fill
+                            className="object-contain"
+                          />
+                          <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
+                        </div> 
                         */}
                       </motion.div>
                     </div>
 
-                    {/* Navigation Controls */}
+                    {/* Navigation Controls - Minimalist style */}
                     {project.images.length > 1 && (
                       <>
                         <button
                           onClick={prevImage}
-                          className="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 rounded-full bg-primary bg-opacity-60 flex items-center justify-center hover:bg-accent transition-colors"
+                          className="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300 bg-white/90 rounded-full shadow-sm"
                           aria-label="Previous image"
                         >
                           <FiChevronLeft size={24} />
                         </button>
                         <button
                           onClick={nextImage}
-                          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 rounded-full bg-primary bg-opacity-60 flex items-center justify-center hover:bg-accent transition-colors"
+                          className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center text-dark hover:text-accent transition-colors duration-300 bg-white/90 rounded-full shadow-sm"
                           aria-label="Next image"
                         >
                           <FiChevronRight size={24} />
                         </button>
 
-                        {/* Image Indicators */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        {/* Image Indicators - Elegant dots */}
+                        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
                           {project.images.map((_, index) => (
                             <button
                               key={index}
                               onClick={() => setCurrentImageIndex(index)}
-                              className={`w-3 h-3 rounded-full transition-all ${
-                                currentImageIndex === index
-                                  ? "bg-accent scale-125"
-                                  : "bg-white bg-opacity-50"
-                              }`}
+                              className="transition-all duration-300"
                               aria-label={`Go to image ${index + 1}`}
-                            />
+                            >
+                              <div
+                                className={`w-2 h-2 rounded-full ${
+                                  currentImageIndex === index
+                                    ? "bg-accent"
+                                    : "bg-stone/30"
+                                }`}
+                              ></div>
+                            </button>
                           ))}
                         </div>
                       </>
@@ -169,22 +179,23 @@ export default function ProjectModal({
                   </>
                 ) : (
                   // Fallback if no gallery images
-                  <div className="w-full h-full bg-gradient-to-br from-dark to-secondary flex items-center justify-center">
-                    <span className="text-2xl font-bold text-accent">
+                  <div className="w-full h-full bg-paper flex items-center justify-center">
+                    <span className="text-2xl font-serif italic text-accent/70">
                       {project.title}
                     </span>
                   </div>
                 )}
               </div>
 
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                <div className="flex flex-wrap justify-between items-start gap-4 mb-6">
-                  <div>
-                    <span className="text-xs font-medium text-accent rounded-full px-3 py-1 bg-accent bg-opacity-10 mb-2 inline-block">
+              {/* Content - Elegant styled */}
+              <div className="p-6 md:p-10 bg-white">
+                {/* Title Section with Elegant Design */}
+                <div className="flex flex-wrap justify-between items-start gap-6 mb-10 relative">
+                  <div className="flex-1">
+                    <span className="text-xs uppercase font-sans tracking-widest text-accent mb-2 block">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-bold">
+                    <h3 className="text-2xl md:text-3xl font-serif text-dark">
                       {project.title}
                     </h3>
                   </div>
@@ -195,11 +206,11 @@ export default function ProjectModal({
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary hover:bg-dark transition-colors"
+                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark hover:text-accent transition-colors duration-300"
                         aria-label="GitHub Repository"
                       >
                         <FiGithub size={18} />
-                        <span>GitHub</span>
+                        <span className="font-sans text-sm">GitHub</span>
                       </a>
                     )}
                     {project.liveUrl && (
@@ -207,36 +218,42 @@ export default function ProjectModal({
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent hover:bg-opacity-90 transition-colors"
+                        className="border-elegant flex items-center gap-2 px-4 py-2 text-dark hover:text-accent transition-colors duration-300"
                         aria-label="Live Demo"
                       >
                         <FiExternalLink size={18} />
-                        <span>Live Demo</span>
+                        <span className="font-sans text-sm">Live Demo</span>
                       </a>
                     )}
                   </div>
                 </div>
 
-                {/* Detailed Description */}
-                <div className="mb-8">
-                  <h4 className="text-lg font-bold mb-3">About the Project</h4>
-                  <p className="text-gray-300">
+                {/* Detailed Description with Elegant styling */}
+                <div className="mb-12 relative">
+                  <h4 className="text-lg font-serif mb-4">About the Project</h4>
+                  <p className="text-stone leading-relaxed font-sans">
                     {project.longDescription || project.description}
                   </p>
                 </div>
 
-                {/* Two Column Layout for Features and Technologies */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Two Column Layout for Features and Technologies with Elegant Styling */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
                   {/* Features */}
                   {project.features && project.features.length > 0 && (
-                    <div>
-                      <h4 className="text-lg font-bold mb-3">Key Features</h4>
-                      <ul className="space-y-2">
+                    <div className="border-l border-accent/10 pl-6">
+                      <h4 className="text-lg font-serif mb-4">Key Features</h4>
+                      <ul className="space-y-3">
                         {project.features.map((feature, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="text-accent mr-2">•</span>
-                            <span className="text-gray-300">{feature}</span>
-                          </li>
+                          <motion.li
+                            key={index}
+                            className="text-stone font-sans"
+                            initial={{ opacity: 0, x: -5 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                            viewport={{ once: true }}
+                          >
+                            {feature}
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
@@ -244,46 +261,52 @@ export default function ProjectModal({
 
                   {/* Technologies */}
                   {project.technologies && project.technologies.length > 0 && (
-                    <div>
-                      <h4 className="text-lg font-bold mb-3">
-                        Technologies Used
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="border-l border-accent/10 pl-6">
+                      <h4 className="text-lg font-serif mb-4">Technologies</h4>
+                      <div className="flex flex-wrap gap-y-3 gap-x-6">
                         {project.technologies.map((tech, index) => (
-                          <span
+                          <motion.span
                             key={index}
-                            className="text-sm bg-secondary px-3 py-1 rounded-full"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: index * 0.05, duration: 0.5 }}
+                            viewport={{ once: true }}
+                            className="text-stone font-mono text-sm"
                           >
                             {tech}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Challenges */}
+                {/* Challenges - Elegant Box */}
                 {project.challenges && (
-                  <div className="mt-8">
-                    <h4 className="text-lg font-bold mb-3">
+                  <div className="mt-10 mb-12">
+                    <h4 className="text-lg font-serif mb-4">
                       Challenges & Solutions
                     </h4>
-                    <p className="text-gray-300 p-4 bg-secondary bg-opacity-40 rounded-lg border-l-4 border-accent">
+                    <p className="text-stone font-sans leading-relaxed p-6 bg-paper">
                       {project.challenges}
                     </p>
                   </div>
                 )}
 
-                {/* Tags */}
-                <div className="mt-8">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
+                {/* Tags with Elegant Styling */}
+                <div className="mt-10 pt-6 border-t border-accent/10">
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    {project.tags.map((tag, index) => (
+                      <motion.span
                         key={tag}
-                        className="text-xs bg-dark px-3 py-1 rounded-full"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: index * 0.05, duration: 0.5 }}
+                        viewport={{ once: true }}
+                        className="text-xs font-sans text-stone tracking-wide"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>

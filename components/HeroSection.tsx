@@ -1,214 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function HeroSection() {
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: (i: number) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.2,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-  };
-
-  // Tech stack icons - would be replaced with actual SVG icons in a real implementation
+  // Tech stack for the minimal display
   const techStack = [
-    { name: "React", color: "#61DAFB" },
-    { name: "Next.js", color: "#000000" },
-    { name: "TypeScript", color: "#3178C6" },
-    { name: "Node.js", color: "#339933" },
-    { name: "Tailwind", color: "#06B6D4" },
-    { name: "MongoDB", color: "#47A248" },
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "MongoDB",
+    "Tailwind",
   ];
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-dark relative overflow-hidden"
+      className="min-h-screen flex items-center bg-white relative overflow-hidden pt-20"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating geometric shapes */}
-        <motion.div
-          className="absolute top-10 left-[10%] w-40 h-40 rounded-full bg-gradient-to-r from-peach to-accent opacity-20 blur-3xl"
-          animate={{
-            y: [0, -30, 0],
-            x: [0, 15, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+      {/* Subtle paper texture overlay */}
+      <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
 
-        <motion.div
-          className="absolute bottom-[20%] right-[10%] w-64 h-64 rounded-full bg-gradient-to-l from-accent/40 to-dark opacity-20 blur-3xl"
-          animate={{
-            y: [0, 40, 0],
-            x: [0, -20, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
+      {/* Small decorative element */}
+      <div className="absolute top-48 -left-10 w-24 h-24 border-r border-b border-accent/20"></div>
+      <div className="absolute bottom-48 -right-10 w-24 h-24 border-l border-t border-accent/20"></div>
 
-        <motion.div
-          className="absolute top-[40%] left-[60%] w-52 h-52 rounded-full bg-gradient-to-tr from-lightPink to-peach opacity-20 blur-3xl"
-          animate={{
-            y: [0, 30, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-
-        {/* Animated grid pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMxLjIzIDAgMi4xOTguOTY5IDIuMTk4IDIuMnYxOS42YzAgMS4yMzEtLjk2OCAyLjItMi4xOTggMi4ySDI0Yy0xLjIzIDAtMi4yLTEuOTY5LTIuMi0zLjJWMjAuMkMyMS44IDE4Ljk2OSAyMi45NyAxOCAyNC4yIDE4aDExLjhoLS4wMDJ6IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9Ii4wMSIvPjwvZz48L3N2Zz4=')] opacity-5" />
-      </div>
-
-      {/* Content */}
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          {/* Left side: Text content */}
+      {/* Container */}
+      <div className="container mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+          {/* Left side column - Main heading */}
           <motion.div
-            className="w-full lg:w-1/2"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            className="lg:col-span-2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="max-w-xl">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="inline-block py-1 px-3 rounded-full bg-accent bg-opacity-20 text-accent text-sm font-medium mb-5">
-                  Full Stack Developer
-                </span>
-              </motion.div>
+            <div className="max-w-3xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-dark leading-tight mb-8">
+                Creating purposeful digital experiences through{" "}
+                <span className="text-accent">thoughtful</span> design.
+              </h1>
 
-              <motion.h1
-                className="text-5xl md:text-7xl font-bold mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <span className="text-white">I'm </span>
-                <span className="bg-gradient-to-r from-peach to-accent bg-clip-text text-transparent">
-                  John Doe
-                </span>
-              </motion.h1>
-
-              <motion.div
-                className="mt-8 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <h2 className="text-2xl text-white mb-6">
-                  Turning <span className="text-peach">ideas</span> into{" "}
-                  <span className="text-accent">reality</span> with code
-                </h2>
-                <p className="text-lg text-gray-300">
-                  I specialize in crafting modern, responsive web applications
-                  with cutting-edge technologies. Passionate about building
-                  elegant solutions that solve real-world problems.
+              <div className="mt-10">
+                <p className="text-stone text-lg md:text-xl mb-10 font-sans max-w-lg">
+                  Full-stack developer specializing in crafting minimalist,
+                  user-centered web applications that balance form and function.
                 </p>
-              </motion.div>
 
-              <motion.div
-                className="flex flex-wrap gap-4 mt-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <a
-                  href="#projects"
-                  className="px-8 py-3 bg-accent text-white font-medium rounded-md hover:shadow-lg hover:shadow-accent/20 transition-all transform hover:-translate-y-1"
-                >
-                  View My Work
-                </a>
-                <a
-                  href="#contact"
-                  className="px-8 py-3 border border-lightPink text-white font-medium rounded-md hover:bg-lightPink hover:bg-opacity-10 transition-all transform hover:-translate-y-1"
-                >
-                  Contact Me
-                </a>
-              </motion.div>
+                <div className="flex flex-wrap gap-5 mt-12">
+                  <a
+                    href="#projects"
+                    className="group flex items-center gap-2 px-8 py-3 bg-dark text-white font-sans text-base font-medium border border-dark hover:bg-white hover:text-dark transition-colors duration-300"
+                  >
+                    View Projects
+                    <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
+                  <a
+                    href="#contact"
+                    className="px-8 py-3 text-dark border border-dark font-sans text-base font-medium hover:bg-dark hover:text-white transition-colors duration-300"
+                  >
+                    Contact
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right side: Creative element */}
+          {/* Right side column - Showcase */}
           <motion.div
-            className="w-full lg:w-1/2 flex justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:flex flex-col items-start space-y-6 border-l border-accent/20 pl-8 py-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
-              {/* Central circle with pulse animation */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-peach to-accent rounded-full shadow-xl animate-pulse-glow"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  duration: 1,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                }}
-              >
-                <div className="w-full h-full flex items-center justify-center text-white font-bold text-xl">
-                  JD
-                </div>
-              </motion.div>
+            <div className="mb-4">
+              <span className="text-xs uppercase tracking-widest text-accent font-sans">
+                Technologies
+              </span>
+            </div>
 
-              {/* Orbiting tech stack */}
+            <div className="flex flex-col space-y-5">
               {techStack.map((tech, i) => (
                 <motion.div
-                  key={tech.name}
-                  className="absolute w-12 h-12 rounded-full bg-secondary flex items-center justify-center shadow-lg"
-                  style={{
-                    top: `${50 + 40 * Math.cos(i * (Math.PI / 3) * 2)}%`,
-                    left: `${50 + 40 * Math.sin(i * (Math.PI / 3) * 2)}%`,
-                  }}
-                  custom={i}
-                  variants={iconVariants}
-                  initial="hidden"
-                  animate="visible"
-                  whileHover={{
-                    scale: 1.2,
-                    backgroundColor: tech.color,
-                    color: "#fff",
-                  }}
+                  key={tech}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                  className="text-dark"
                 >
-                  <span className="text-xs font-medium">{tech.name}</span>
+                  <span className="text-lg font-mono text-dark">{tech}</span>
                 </motion.div>
               ))}
+            </div>
 
-              {/* Rotating ring */}
-              <motion.div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full border border-accent border-opacity-30 animate-rotate-slow" />
-
-              <motion.div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-full border border-peach border-opacity-20 animate-rotate-slow"
-                style={{ animationDirection: "reverse" }}
-              />
+            <div className="mt-8 pt-8 border-t border-accent/20 w-full">
+              <span className="text-xs uppercase tracking-widest text-stone font-sans block mb-2">
+                Based in
+              </span>
+              <span className="font-serif text-lg text-dark">Tokyo, Japan</span>
             </div>
           </motion.div>
         </div>
@@ -217,25 +107,15 @@ export default function HeroSection() {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 1.2,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ duration: 1, delay: 1.5 }}
       >
-        <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-3 bg-accent rounded-full mt-2"
-            animate={{ y: [0, 4, 0] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-xs uppercase tracking-widest text-dark font-sans">
+            Scroll
+          </span>
+          <div className="h-10 w-px bg-dark/30"></div>
         </div>
       </motion.div>
     </section>

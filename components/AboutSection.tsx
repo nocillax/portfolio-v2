@@ -2,48 +2,66 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FiCode, FiDatabase, FiLayout, FiTool } from "react-icons/fi";
 
 export default function AboutSection() {
-  // Skills to display
-  const skills = [
-    { name: "React", level: 95 },
-    { name: "Next.js", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "Express", level: 85 },
-    { name: "MongoDB", level: 75 },
-    { name: "WordPress", level: 80 },
-    { name: "Tailwind CSS", level: 90 },
-    { name: "QA Testing", level: 85 },
+  // Tech stacks by category
+  const techStacks = [
+    {
+      category: "Front End",
+      icon: <FiLayout className="text-accent w-5 h-5" />,
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
+    },
+    {
+      category: "Back End",
+      icon: <FiServer className="text-accent w-5 h-5" />,
+      technologies: ["Node.js", "Express", "REST APIs", "GraphQL"],
+    },
+    {
+      category: "Database",
+      icon: <FiDatabase className="text-accent w-5 h-5" />,
+      technologies: ["MongoDB", "PostgreSQL", "Redis", "Prisma"],
+    },
+    {
+      category: "Tools & Others",
+      icon: <FiTool className="text-accent w-5 h-5" />,
+      technologies: ["Git", "Docker", "CI/CD", "Jest", "Cypress", "Figma"],
+    },
   ];
 
   return (
-    <section id="about" className="section-padding bg-secondary">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">About Me</h2>
-          <div className="w-16 h-1 bg-accent mx-auto"></div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          {/* Profile image */}
+    <section id="about" className="py-24 md:py-32 bg-white">
+      <div className="container mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          {/* Left column - Heading and text */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
-            className="relative"
           >
-            <div className="w-full max-w-md mx-auto aspect-square relative overflow-hidden rounded-xl border-4 border-accent">
-              <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+            <span className="block text-sm uppercase tracking-widest text-accent font-sans mb-2">
+              About me
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-dark mb-8">
+              Design-minded developer focused on building elegant, user-centered
+              experiences
+            </h2>
+
+            {/* Profile image - more reasonably sized */}
+            <div className="mt-12 mb-8 relative w-40 h-40 md:w-56 md:h-56 overflow-hidden">
+              <div className="w-full h-full border border-accent/20 flex items-center justify-center bg-paper">
                 {/* This would be replaced with an actual image in a real portfolio */}
-                <div className="text-6xl font-bold text-accent">JD</div>
+                <span className="text-3xl font-serif italic text-accent">
+                  JD
+                </span>
                 {/* Example of how to use Next.js Image:
                 <Image
                   src="/images/profile.jpg"
@@ -54,58 +72,100 @@ export default function AboutSection() {
                 />
                 */}
               </div>
+              <div className="absolute -bottom-2 -right-2 w-20 h-20 border border-accent/20 z-[-1]"></div>
             </div>
           </motion.div>
 
-          {/* About text and skills */}
+          {/* Right column - About text and tech stacks */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h3 className="text-2xl font-bold mb-4">
-              Full Stack Web Developer
-            </h3>
-            <p className="text-gray-300 mb-6">
-              I'm a passionate Full Stack Web Developer with 5+ years of
-              experience creating responsive and user-friendly web applications.
-              My expertise spans across both front-end and back-end
-              technologies, allowing me to build complete, scalable solutions.
-            </p>
-            <p className="text-gray-300 mb-8">
-              With a background in Computer Science and a continuous learning
-              mindset, I stay updated with the latest technologies and best
-              practices. I enjoy solving complex problems and transforming ideas
-              into functional, elegant applications.
-            </p>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-dark text-lg font-medium mb-6 font-sans">
+                I'm a full-stack developer with 5+ years of experience creating
+                thoughtful digital experiences that blend form and function.
+              </p>
 
-            {/* Skills */}
-            <div className="space-y-4">
-              <h4 className="text-xl font-bold mb-4">My Skills</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {skills.map((skill, index) => (
-                  <div key={skill.name} className="mb-3">
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium">{skill.name}</span>
-                      <span>{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-dark rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 0.8, delay: 0.1 * index }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="bg-accent h-2 rounded-full"
-                      ></motion.div>
-                    </div>
-                  </div>
-                ))}
+              <p className="text-stone mb-6 font-sans">
+                My approach combines clean, minimalist design principles with
+                robust technical implementation. I believe in creating software
+                that not only solves problems effectively but also provides an
+                intuitive and elegant user experience.
+              </p>
+
+              <p className="text-stone mb-6 font-sans">
+                With a background in Computer Science and a passion for design,
+                I bring a holistic perspective to every project. I focus on
+                writing clean, maintainable code that scales well and adapts to
+                changing requirements.
+              </p>
+
+              {/* Tech stacks in a more elegant way */}
+              <div className="mt-12 pt-6 border-t border-accent/10">
+                <h3 className="text-lg font-serif text-dark mb-8">
+                  Technical Expertise
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                  {techStacks.map((stack, i) => (
+                    <motion.div
+                      key={stack.category}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 * i }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        {stack.icon}
+                        <h4 className="font-sans font-medium text-dark">
+                          {stack.category}
+                        </h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {stack.technologies.map((tech) => (
+                          <li
+                            key={tech}
+                            className="text-stone font-sans text-sm"
+                          >
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+// Add this component for the icon that's missing
+function FiServer(props: any) {
+  return (
+    <svg
+      stroke="currentColor"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+      <line x1="6" y1="6" x2="6" y2="6"></line>
+      <line x1="6" y1="18" x2="6" y2="18"></line>
+    </svg>
   );
 }

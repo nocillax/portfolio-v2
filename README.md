@@ -1,25 +1,35 @@
-# Modern Next.js Portfolio
+# Minimalist Japanese-Inspired Portfolio
 
-A modern, creative, and fast portfolio website built using Next.js 14, React, TypeScript, Tailwind CSS, and Framer Motion.
+An elegant, minimalist portfolio website with Japanese design influences, built using Next.js 14, React, TypeScript, Tailwind CSS, and Framer Motion.
+
+## 🌿 Design Philosophy
+
+This portfolio embraces the Japanese design principles of:
+
+- **Ma (間)** - The conscious use of negative space
+- **Wabi-Sabi (侘寂)** - Finding beauty in imperfection and simplicity
+- **Shibui (渋い)** - Subtle elegance that balances simplicity and complexity
 
 ## 🚀 Features
 
-- Single-page application with smooth scrolling navigation
-- Modern, responsive design with a sophisticated color palette
-- Creative animations and interactive elements using Framer Motion
-- Project modals with image galleries and detailed descriptions
-- Advanced hover effects and transitions
-- Animated background elements and geometric shapes
-- Fully customizable project showcase with categorized filtering
-- Built with performance and SEO in mind
+- Clean, minimalist interface with refined typography
+- Elegant color palette inspired by traditional Japanese aesthetics
+- Subtle, purposeful animations with Framer Motion
+- Thoughtfully designed project cards and modal presentations
+- Asymmetrical grid layouts with intentional negative space
+- Custom paper texture and subtle dot patterns
+- Responsive design that maintains elegance across all devices
+- Focus on content with beautiful typography and whitespace
 
 ## 💻 Tech Stack
 
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: React Icons
+- **Styling**: Tailwind CSS with custom minimalist design system
+- **Typography**: Cormorant Garamond (serif), Noto Sans (sans-serif), IBM Plex Mono (monospace)
+- **Color Palette**: Off-white, warm terracotta, soft grays, and subtle earth tones
+- **Animations**: Subtle Framer Motion animations with natural easing
+- **Icons**: Minimal React Icons with refined styling
 
 ## 🛠️ Getting Started
 

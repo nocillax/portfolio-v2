@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiTwitter,
+  FiMail,
+  FiArrowRight,
+} from "react-icons/fi";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -39,37 +45,45 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-dark">
-      <div className="container mx-auto">
+    <section id="contact" className="py-24 md:py-32 bg-paper">
+      <div className="container mx-auto px-6 md:px-10">
+        {/* Section header with minimalist style */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-12"
+          className="max-w-md mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">Get In Touch</h2>
-          <div className="w-16 h-1 bg-accent mx-auto"></div>
-          <p className="max-w-2xl mx-auto mt-4 text-gray-300">
-            Feel free to contact me for any work opportunities or collaboration.
-            I'm always open to discussing new projects, ideas, or partnerships.
+          <span className="block text-sm uppercase tracking-widest text-accent font-sans mb-2">
+            Contact
+          </span>
+          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-6">
+            Let's discuss your next project
+          </h2>
+          <div className="w-12 h-px bg-accent/30 my-6"></div>
+          <p className="text-stone font-sans">
+            I'm currently available for freelance projects or full-time
+            positions. Feel free to reach out if you're looking for a developer
+            focused on creating elegant, efficient, and user-friendly
+            applications.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+          {/* Contact Form - Takes more space */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-3"
           >
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-8">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-dark mb-2 font-sans"
                 >
                   Name
                 </label>
@@ -80,13 +94,13 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-secondary text-white py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-dark mb-2 font-sans"
                 >
                   Email
                 </label>
@@ -97,13 +111,13 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-secondary text-white py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-300 mb-2"
+                  className="block text-sm font-medium text-dark mb-2 font-sans"
                 >
                   Message
                 </label>
@@ -114,100 +128,117 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-secondary text-white py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full bg-white text-dark py-3 px-4 border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30 font-sans"
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-accent hover:bg-opacity-90 text-white py-3 px-6 rounded-md font-medium transition-all transform hover:scale-105 disabled:opacity-70 disabled:transform-none w-full"
+                className="group flex items-center gap-2 px-8 py-3 bg-dark text-white font-sans text-base font-medium border border-dark hover:bg-white hover:text-dark transition-colors duration-300 disabled:opacity-70 disabled:pointer-events-none"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
+                <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               {submitMessage && (
-                <div className="mt-4 p-3 bg-green-500 bg-opacity-20 text-green-300 rounded-md">
+                <div className="mt-4 p-4 bg-accent/5 text-dark border border-accent/20 font-sans">
                   {submitMessage}
                 </div>
               )}
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info - Smaller column */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
+            className="lg:col-span-2 lg:border-l lg:border-accent/20 lg:pl-10"
           >
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <p className="text-gray-300 mb-8">
-              I'm currently available for freelance work, full-time positions or
-              collaboration on interesting projects.
-            </p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-serif text-xl text-dark mb-6">
+                  Contact Information
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="mt-1">
+                      <FiMail size={20} className="text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-sans font-medium text-dark mb-1">
+                        Email
+                      </h4>
+                      <a
+                        href="mailto:contact@example.com"
+                        className="text-stone hover:text-accent transition-colors font-sans"
+                      >
+                        contact@example.com
+                      </a>
+                    </div>
+                  </div>
 
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                  <FiMail size={24} className="text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <a
-                    href="mailto:contact@example.com"
-                    className="text-accent hover:underline"
-                  >
-                    contact@example.com
-                  </a>
+                  <div className="flex items-start space-x-4">
+                    <div className="mt-1">
+                      <FiLinkedin size={20} className="text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-sans font-medium text-dark mb-1">
+                        LinkedIn
+                      </h4>
+                      <a
+                        href="https://linkedin.com/in/example"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-stone hover:text-accent transition-colors font-sans"
+                      >
+                        linkedin.com/in/example
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                  <FiLinkedin size={24} className="text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-medium">LinkedIn</h4>
+              <div className="pt-8 border-t border-accent/20">
+                <h3 className="font-serif text-lg text-dark mb-4">Connect</h3>
+                <div className="flex space-x-5">
+                  <a
+                    href="https://github.com/example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone hover:text-accent transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <FiGithub size={22} />
+                  </a>
                   <a
                     href="https://linkedin.com/in/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:underline"
+                    className="text-stone hover:text-accent transition-colors"
+                    aria-label="LinkedIn"
                   >
-                    linkedin.com/in/example
+                    <FiLinkedin size={22} />
+                  </a>
+                  <a
+                    href="https://twitter.com/example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone hover:text-accent transition-colors"
+                    aria-label="Twitter"
+                  >
+                    <FiTwitter size={22} />
                   </a>
                 </div>
               </div>
-            </div>
 
-            <h3 className="text-xl font-bold mt-10 mb-4">Follow Me</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/example"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="GitHub"
-              >
-                <FiGithub size={22} />
-              </a>
-              <a
-                href="https://linkedin.com/in/example"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin size={22} />
-              </a>
-              <a
-                href="https://twitter.com/example"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Twitter"
-              >
-                <FiTwitter size={22} />
-              </a>
+              <div className="pt-8 border-t border-accent/20">
+                <p className="text-stone font-sans text-sm italic">
+                  Based in Tokyo, Japan.
+                  <br />
+                  Available for remote work worldwide.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
