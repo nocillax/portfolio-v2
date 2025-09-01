@@ -2,9 +2,14 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  longDescription?: string; // Detailed description for the modal
   image: string;
+  images?: string[]; // Additional images for the modal gallery
   category: "Full-Stack" | "Front-End" | "WordPress" | "QA";
   tags: string[];
+  features?: string[]; // Key features list
+  technologies?: string[]; // Detailed technologies used
+  challenges?: string; // Challenges faced during development
   liveUrl?: string;
   githubUrl?: string;
 }
@@ -16,9 +21,37 @@ export const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "A full-featured e-commerce platform built with Next.js, MongoDB, and Stripe integration for payments.",
+    longDescription:
+      "This comprehensive e-commerce platform offers a seamless shopping experience with advanced product filtering, real-time inventory management, and secure payment processing. The application features a responsive design that works flawlessly across all devices, with optimized performance and SEO considerations built-in from the ground up. The admin dashboard provides powerful analytics and order management capabilities.",
     image: "/images/projects/ecommerce.jpg",
+    images: [
+      "/images/projects/ecommerce-detail-1.jpg",
+      "/images/projects/ecommerce-detail-2.jpg",
+      "/images/projects/ecommerce-detail-3.jpg",
+      "/images/projects/ecommerce-detail-4.jpg",
+    ],
     category: "Full-Stack",
     tags: ["Next.js", "MongoDB", "Express", "Node.js", "Stripe", "Redux"],
+    features: [
+      "User authentication and authorization system",
+      "Product catalog with advanced filtering options",
+      "Shopping cart and wishlist functionality",
+      "Secure payment processing with Stripe",
+      "Order tracking and history",
+      "Admin dashboard for inventory management",
+    ],
+    technologies: [
+      "Next.js",
+      "MongoDB",
+      "Express.js",
+      "Node.js",
+      "Redux",
+      "Stripe API",
+      "JWT Authentication",
+      "AWS S3 for image storage",
+    ],
+    challenges:
+      "Implementing real-time inventory updates across multiple concurrent user sessions while maintaining performance was particularly challenging. I solved this by implementing a custom caching layer and optimistic UI updates.",
     liveUrl: "https://example-ecommerce.com",
     githubUrl: "https://github.com/username/ecommerce-platform",
   },

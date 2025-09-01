@@ -5,9 +5,12 @@ A modern, creative, and fast portfolio website built using Next.js 14, React, Ty
 ## 🚀 Features
 
 - Single-page application with smooth scrolling navigation
-- Modern, responsive design with a dark color palette and vibrant accent colors
-- Elegant animations using Framer Motion
-- Fully customizable project showcase
+- Modern, responsive design with a sophisticated color palette
+- Creative animations and interactive elements using Framer Motion
+- Project modals with image galleries and detailed descriptions
+- Advanced hover effects and transitions
+- Animated background elements and geometric shapes
+- Fully customizable project showcase with categorized filtering
 - Built with performance and SEO in mind
 
 ## 💻 Tech Stack

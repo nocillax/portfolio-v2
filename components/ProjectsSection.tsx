@@ -3,16 +3,32 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 import { projects, Project } from "@/data/projects";
 
 export default function ProjectsSection() {
   const categories = ["All", "Full-Stack", "Front-End", "WordPress", "QA"];
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProjects =
     activeCategory === "All"
       ? projects
       : projects.filter((project) => project.category === activeCategory);
+
+  const handleViewDetails = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    // Optional: prevent scrolling when modal is open
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Re-enable scrolling
+    document.body.style.overflow = "auto";
+  };
 
   return (
     <section id="projects" className="section-padding bg-primary">
@@ -56,7 +72,12 @@ export default function ProjectsSection() {
         >
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onViewDetails={handleViewDetails}
+              />
             ))
           ) : (
             <div className="col-span-3 text-center py-10">
@@ -66,6 +87,13 @@ export default function ProjectsSection() {
             </div>
           )}
         </motion.div>
+
+        {/* Project Modal */}
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </div>
     </section>
   );
