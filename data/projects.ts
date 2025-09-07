@@ -22,18 +22,20 @@ export const projects: Project[] = [
       "A full-featured e-commerce platform built with NestJS (backend) and Next.js + Tailwind (frontend), designed for Admin, Customer, and Guest roles.",
     longDescription:
       "This platform enables seamless online shopping with role-based access. Admins manage product listings with image uploads, variants, discounts, and category tagging that dynamically places products in homepage sections. Customers can browse products, view details, and add them to a cart with real-time quantity and discount updates. Secure Stripe payment integration ensures smooth checkout, while automated confirmation emails are sent via Nodemailer. The entire system is built with JWT authentication for security and Zustand for global cart state management.",
-    image: "/images/projects/ecommerce-nest.jpg",
+    image: "/images/projects/ecom1.png",
     images: [
-      "/images/projects/ecommerce-nest-detail-1.jpg",
-      "/images/projects/ecommerce-nest-detail-2.jpg",
-      "/images/projects/ecommerce-nest-detail-3.jpg",
+      "/images/projects/ecom1.png",
+      "/images/projects/ecom2.png",
+      "/images/projects/ecom3.png",
+      "/images/projects/ecom4.png",
+      "/images/projects/ecom5.png",
     ],
     category: "Full-Stack",
     tags: [
       "Next.js",
       "NestJS",
-      "Tailwind",
       "PostgreSQL",
+      "Tailwind CSS",
       "Stripe",
       "Zustand",
       "JWT",
@@ -59,8 +61,8 @@ export const projects: Project[] = [
     ],
     challenges:
       "Ensuring secure and seamless checkout flow with real-time cart synchronization was a challenge. Zustand was used for global state, while careful session handling via JWT in cookies maintained login persistence.",
-    liveUrl: "https://ecommerce-nest-next.vercel.app",
-    githubUrl: "https://github.com/username/ecommerce-nest-next",
+    liveUrl: "",
+    githubUrl: "https://github.com/nocillax/ATP3-Ecommerce-Site",
   },
   {
     id: "fs-3",
@@ -69,11 +71,12 @@ export const projects: Project[] = [
       "A comprehensive inventory and sales system built with ASP.NET MVC and SQL Server, tailored for Managers and Salespersons with role-based dashboards.",
     longDescription:
       "This system manages product stock, sales records, and financial insights. Managers can create salesperson accounts, add products with pricing, discounts, and categories, and monitor profits through analytics dashboards. Salespersons record transactions via an intuitive sale form with AJAX-powered product search, generate invoices, and track their KPIs. The system updates inventory in real time, generates downloadable invoices, and allows managers to view filterable reports with charts and raw data. Built with a clean Razor + Bootstrap frontend for usability.",
-    image: "/images/projects/inventory.jpg",
+    image: "/images/projects/isms1.png",
     images: [
-      "/images/projects/inventory-detail-1.jpg",
-      "/images/projects/inventory-detail-2.jpg",
-      "/images/projects/inventory-detail-3.jpg",
+      "/images/projects/isms1.png",
+      "/images/projects/isms2.png",
+      "/images/projects/isms3.png",
+      "/images/projects/isms4.png",
     ],
     category: "Full-Stack",
     tags: ["ASP.NET MVC", "MSSQL", "Bootstrap", "Razor", "AJAX", "Rotativa"],
@@ -98,7 +101,8 @@ export const projects: Project[] = [
     challenges:
       "Implementing efficient real-time product search and generating professional PDF reports with charts were key challenges. These were solved using AJAX-powered dropdowns and Rotativa PDF integration.",
     liveUrl: "",
-    githubUrl: "https://github.com/username/inventory-sales-system",
+    githubUrl:
+      "https://github.com/nocillax/Inventory---Sales-Management-System",
   },
   {
     id: "fs-4",

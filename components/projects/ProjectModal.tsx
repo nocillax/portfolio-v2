@@ -10,6 +10,7 @@ import {
   FiGithub,
 } from "react-icons/fi";
 import { Project } from "@/data/projects";
+import Image from "next/image";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -53,15 +54,14 @@ export default function ProjectModal({
 
   // Navigate between images
   const nextImage = () => {
-    if (!project.images) return;
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+    if (!project.images || project.images.length <= 1) return;
+    setCurrentImageIndex((prev) => (prev + 1) % (project.images?.length || 1));
   };
 
   const prevImage = () => {
-    if (!project.images) return;
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + project.images.length) % project.images.length
-    );
+    if (!project.images || project.images.length <= 1) return;
+    const imagesLength = project.images?.length || 1;
+    setCurrentImageIndex((prev) => (prev - 1 + imagesLength) % imagesLength);
   };
 
   return (
@@ -121,23 +121,22 @@ export default function ProjectModal({
                         transition={{ duration: 0.7 }}
                         className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-dark-secondary"
                       >
-                        {/* Image placeholder with refined styling */}
-                        <div className="w-full h-full bg-paper dark:bg-dark-secondary flex items-center justify-center">
-                          <span className="text-2xl font-serif italic text-accent/70 dark:text-accent-dark/70">
-                            {project.title}
-                          </span>
-                        </div>
-                        {/* For real implementation: 
+                        {/* Real implementation with Next.js Image */}
                         <div className="relative w-full h-full">
-                          <Image 
-                            src={project.images[currentImageIndex]} 
-                            alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                          <Image
+                            src={
+                              project.images?.[currentImageIndex] ||
+                              project.image
+                            }
+                            alt={`${project.title} screenshot ${
+                              currentImageIndex + 1
+                            }`}
                             fill
                             className="object-contain"
+                            priority={true}
                           />
                           <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
-                        </div> 
-                        */}
+                        </div>
                       </motion.div>
                     </div>
 
@@ -182,11 +181,16 @@ export default function ProjectModal({
                     )}
                   </>
                 ) : (
-                  // Fallback if no gallery images
-                  <div className="w-full h-full bg-paper dark:bg-dark-secondary flex items-center justify-center">
-                    <span className="text-2xl font-serif italic text-accent/70 dark:text-accent-dark/70">
-                      {project.title}
-                    </span>
+                  // Fallback if no gallery images - use main project image
+                  <div className="w-full h-full bg-paper dark:bg-dark-secondary relative">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-contain"
+                      priority={true}
+                    />
+                    <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
                   </div>
                 )}
               </div>

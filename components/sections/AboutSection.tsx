@@ -57,21 +57,15 @@ export default function AboutSection() {
             </h2>
 
             {/* Profile image - centered in mobile view */}
-            <div className="mt-12 mb-8 relative w-40 h-40 md:w-56 md:h-56 overflow-hidden mx-auto lg:mx-0">
-              <div className="w-full h-full border border-accent/20 dark:border-accent-dark/30 flex items-center justify-center bg-paper dark:bg-dark-paper">
-                {/* This would be replaced with an actual image in a real portfolio */}
-                <span className="text-3xl font-serif italic text-accent dark:text-accent-dark">
-                  {personalInfo.name}
-                </span>
-                {/* Example of how to use Next.js Image:
+            <div className="mt-12 mb-0 relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 overflow-hidden mx-auto lg:mx-0">
+              <div className="w-full h-full border border-accent/20 dark:border-accent-dark/30 bg-paper dark:bg-dark-paper relative">
                 <Image
-                  src="/images/profile.jpg"
-                  alt="John Doe"
+                  src="/images/profile/profile.JPG"
+                  alt={personalInfo.fullName}
                   fill
                   className="object-cover"
                   priority
                 />
-                */}
               </div>
               <div className="absolute -bottom-2 -right-2 w-20 h-20 border border-accent/20 dark:border-accent-dark/30 z-[-1]"></div>
             </div>

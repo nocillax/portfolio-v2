@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FiExternalLink, FiGithub, FiEye } from "react-icons/fi";
 import { Project } from "@/data/projects";
+import Image from "next/image";
 
 /**
  * ProjectCard Component Props
@@ -53,20 +54,16 @@ export default function ProjectCard({
 
           {/* Placeholder for project image with stronger hover effect */}
           <div className="relative w-full h-full flex items-center justify-center bg-paper dark:bg-dark-secondary group-hover:scale-[1.06] group-hover:bg-paper/90 group-hover:border-accent/40 dark:group-hover:bg-dark-secondary/90 dark:group-hover:border-accent-dark/40 transition-all duration-500">
-            <span className="text-2xl font-serif text-accent/80 dark:text-accent-dark/80 italic group-hover:text-accent dark:group-hover:text-accent-dark transition-colors duration-500 group-hover:opacity-100">
-              {project.title}
-            </span>
-
-            {/* For real implementation with proper Next.js Image component:
+            {/* Project image implementation with Next.js Image component */}
             <div className="relative w-full h-full image-frame">
               <Image
-                src={project.image}
+                src={project.image || "/images/projects/placeholder.jpg"}
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                priority={index < 2} // Prioritize loading first visible images
               />
             </div>
-            */}
           </div>
         </div>
 
