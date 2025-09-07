@@ -1,7 +1,10 @@
-import { HeroSection, ContactSection } from "@/components/sections";
+import {
+  HeroSection,
+  ContactSection,
+  AboutSection,
+  ProjectsSection,
+} from "@/components/sections";
 import { Navbar, Footer } from "@/components/layout";
-import AboutSection from "@/components/AboutSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import { ArtisticBackground } from "@/components/ui";
 
 /**

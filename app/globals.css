@@ -356,7 +356,8 @@ h6 {
 
 /* Add golden glow effect for hover in both light and dark modes */
 .hover\:shadow-accent\/20:hover {
-  box-shadow: 0 8px 20px rgba(166, 127, 93, 0.1), 0 0 4px rgba(166, 127, 93, 0.2);
+  box-shadow: 0 8px 20px rgba(166, 127, 93, 0.1),
+    0 0 4px rgba(166, 127, 93, 0.2);
 }
 
 .dark .hover\:shadow-accent-dark\/20:hover {

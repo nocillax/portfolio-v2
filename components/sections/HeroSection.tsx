@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import ScrollMouse from "../ui/ScrollMouse";
+import { personalInfo } from "@/data/personalInfo";
 import {
   // Animation wrappers
   FloatingElement,
@@ -38,15 +39,8 @@ import {
  * - Custom scroll indicator
  */
 export default function HeroSection() {
-  // Tech stack displayed in the right sidebar
-  const techStack = [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Node.js",
-    "MongoDB",
-    "Tailwind",
-  ];
+  // Tech stack displayed in the right sidebar - using first 6 skills from personalInfo
+  const techStack = personalInfo.skills.slice(0, 6);
 
   return (
     <section
@@ -158,18 +152,37 @@ export default function HeroSection() {
             <div className="max-w-3xl">
               {/* Greeting and name */}
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-dark dark:text-primary mb-2">
-                  Hi, I'm{" "}
-                  <span className="font-serif italic text-accent dark:text-accent-dark relative inline-block tracking-wider">
-                    Asif Chowdhury
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30 dark:bg-accent-dark/40"></span>
-                  </span>
-                </h2>
+                <span className="text-lg sm:text-xl font-serif text-stone dark:text-stone-dark block mb-1">
+                  Hi, I'm
+                </span>
+                <div className="overflow-hidden">
+                  <motion.h1
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-dark dark:text-primary whitespace-nowrap"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                  >
+                    <motion.span
+                      className="font-mono font-bold text-accent dark:text-accent-dark relative inline-block leading-tight"
+                      initial={{ opacity: 0.8 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      {personalInfo.fullName}
+                      <motion.span
+                        className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent/30 dark:bg-accent-dark/40"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 1.2, delay: 0.5 }}
+                      ></motion.span>
+                    </motion.span>
+                  </motion.h1>
+                </div>
               </div>
 
               {/* Main heading with animated underline */}
-              <motion.h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-dark dark:text-primary leading-tight mb-8"
+              <motion.h2
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-dark dark:text-primary leading-tight mb-8 mt-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -190,7 +203,7 @@ export default function HeroSection() {
                   ></motion.span>
                 </motion.span>{" "}
                 design.
-              </motion.h1>
+              </motion.h2>
 
               {/* Introduction text and CTA buttons */}
               <div className="mt-10">
@@ -200,7 +213,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.6 }}
                 >
-                  Full-stack developer specializing in crafting minimalist,
+                  {personalInfo.title} specializing in crafting minimalist,
                   user-centered web applications that balance form and function.
                 </motion.p>
 
@@ -213,14 +226,14 @@ export default function HeroSection() {
                 >
                   <a
                     href="#projects"
-                    className="group flex items-center gap-2 px-8 py-3 bg-dark dark:bg-accent-dark text-white font-sans text-base font-medium border border-dark dark:border-accent-dark hover:bg-white dark:hover:bg-dark hover:text-dark dark:hover:text-primary transition-colors duration-300 circle-reveal"
+                    className="group flex items-center gap-2 px-8 py-3 bg-dark dark:bg-accent-dark text-white font-sans text-base font-medium border border-dark dark:border-accent-dark hover:bg-accent dark:hover:bg-dark hover:text-dark dark:hover:text-primary transition-colors duration-300 circle-reveal"
                   >
                     View Projects
                     <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
                   </a>
                   <a
                     href="#contact"
-                    className="px-8 py-3 text-dark dark:text-primary border border-dark dark:border-stone-dark font-sans text-base font-medium hover:bg-dark dark:hover:bg-dark-paper hover:text-white dark:hover:text-primary transition-colors duration-300 ink-brush"
+                    className="px-8 py-3 text-dark dark:text-primary border border-dark dark:border-stone-dark font-sans text-base font-medium hover:bg-accent dark:hover:bg-dark-paper hover:text-white dark:hover:text-primary transition-colors duration-300 ink-brush"
                   >
                     Contact
                   </a>
@@ -265,7 +278,7 @@ export default function HeroSection() {
                 Based in
               </span>
               <span className="font-serif text-lg text-dark dark:text-primary">
-                Tokyo, Japan
+                {personalInfo.location}
               </span>
             </div>
           </motion.div>

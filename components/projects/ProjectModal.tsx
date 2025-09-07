@@ -284,6 +284,12 @@ export default function ProjectModal({
                             className="text-stone dark:text-stone-dark font-mono text-sm"
                           >
                             {tech}
+                            {project.technologies &&
+                              index < project.technologies.length - 1 && (
+                                <span className="ml-4 text-accent/40 dark:text-accent-dark/40">
+                                  •
+                                </span>
+                              )}
                           </motion.span>
                         ))}
                       </div>

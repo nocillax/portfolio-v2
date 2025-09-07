@@ -10,6 +10,7 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import { personalInfo } from "@/data/personalInfo";
 
 /**
  * ContactSection Component
@@ -210,10 +211,10 @@ export default function ContactSection() {
                         Email
                       </h4>
                       <a
-                        href="mailto:contact@example.com"
+                        href={`mailto:${personalInfo.email}`}
                         className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
-                        contact@example.com
+                        {personalInfo.email}
                       </a>
                     </div>
                   </div>
@@ -231,12 +232,12 @@ export default function ContactSection() {
                         LinkedIn
                       </h4>
                       <a
-                        href="https://linkedin.com/in/example"
+                        href={personalInfo.socials.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
-                        linkedin.com/in/example
+                        {personalInfo.socials.linkedin.replace("https://", "")}
                       </a>
                     </div>
                   </div>
@@ -254,12 +255,12 @@ export default function ContactSection() {
                         WhatsApp
                       </h4>
                       <a
-                        href="https://wa.me/1234567890"
+                        href={personalInfo.socials.whatsapp}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
                       >
-                        +1 (234) 567-890
+                        {personalInfo.phone}
                       </a>
                     </div>
                   </div>
@@ -273,7 +274,7 @@ export default function ContactSection() {
                 </h3>
                 <div className="flex space-x-5">
                   <a
-                    href="https://github.com/example"
+                    href={personalInfo.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
@@ -282,7 +283,7 @@ export default function ContactSection() {
                     <FiGithub size={22} />
                   </a>
                   <a
-                    href="https://linkedin.com/in/example"
+                    href={personalInfo.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
@@ -291,7 +292,7 @@ export default function ContactSection() {
                     <FiLinkedin size={22} />
                   </a>
                   <a
-                    href="https://facebook.com/example"
+                    href={personalInfo.socials.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
@@ -300,7 +301,7 @@ export default function ContactSection() {
                     <FiFacebook size={22} />
                   </a>
                   <a
-                    href="https://wa.me/1234567890"
+                    href={personalInfo.socials.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors"

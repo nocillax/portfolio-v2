@@ -30,7 +30,7 @@ interface ThemeProviderProps {
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   // Use state to track the current theme
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   // Effect to initialize theme from localStorage and set up listeners
   useEffect(() => {

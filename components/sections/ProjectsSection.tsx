@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ProjectCard from "./projects/ProjectCard";
-import ProjectModal from "./ProjectModal";
+import ProjectCard from "../projects/ProjectCard";
+import ProjectModal from "../projects/ProjectModal";
 import { projects, Project } from "@/data/projects";
 import {
   SpinElement,
@@ -22,7 +22,7 @@ import {
   KawaiiLeaf,
   KawaiiSplash,
   KawaiiRipple,
-} from "./KawaiiElements";
+} from "../kawaii";
 
 export default function ProjectsSection() {
   const categories = ["All", "Full-Stack", "Front-End", "WordPress", "QA"];
