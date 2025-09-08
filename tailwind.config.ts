@@ -41,18 +41,20 @@ const config: Config = {
       },
       backgroundImage: {
         // Light mode patterns
-        "paper-texture": "url('/images/paper-texture.png')",
+        "paper-texture":
+          "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23a67f5d' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E\")",
         "subtle-dots":
-          "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a67f5d' fill-opacity='0.08' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
         "subtle-grid":
-          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 0h40v1H0V0zm0 20h40v1H0V20zm0 20h40v1H0V40zM20 0v40h1V0H20z'/%3E%3C/g%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a67f5d' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h40v1H0V0zm0 20h40v1H0V20zm0 20h40v1H0V40zM20 0v40h1V0H20z'/%3E%3C/g%3E%3C/svg%3E\")",
         "abstract-pattern":
-          "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23a67f5d' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E\")",
         "minimal-squares":
-          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10zm10-10h10v10H20V0zm10 10h10v10H30V10zM0 20h10v10H0V20zm10 10h10v10H10V30zm10-10h10v10H20V20zm10 10h10v10H30V30z' fill='%23000000' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10zm10-10h10v10H20V0zm10 10h10v10H30V10zM0 20h10v10H0V20zm10 10h10v10H10V30zm10-10h10v10H20V20zm10 10h10v10H30V30z' fill='%23a67f5d' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E\")",
 
         // Dark mode patterns
-        "dark-paper-texture": "url('/images/dark-paper-texture.png')",
+        "dark-paper-texture":
+          "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20-20h20v20H40V0zm0 40h20v20H40V40zM0 40h20v20H0V40z' fill='%23FFFFFF' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
         "dark-subtle-dots":
           "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
         "dark-subtle-grid":

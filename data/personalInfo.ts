@@ -31,7 +31,7 @@ export const personalInfo = {
   },
 
   // Resume/CV
-  resumeLink: "/resume.pdf",
+  resumeLink: "/Asif_Chowdhury_CV.pdf",
 
   // Skills & Technologies
   skills: [
