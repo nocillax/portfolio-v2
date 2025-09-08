@@ -140,11 +140,11 @@ export const projects: Project[] = [
       "A responsive front-end travel website showcasing immersive Japanese tour packages with a clean earth-toned design.",
     longDescription:
       "Luna Tours delivers an engaging travel experience with a front-end only platform. The Home Page features Swiper.js-powered hero images, popular tours, reviews, and a newsletter form. The Tours Page displays all packages in a responsive card layout with filtering and sorting. Each tour page contains high-quality galleries, itineraries, inclusions/exclusions, reviews, and a booking section. Additional pages include About Us (company journey) and Contact (validated form, embedded map, FAQs). Built with Next.js and Tailwind CSS, the site emphasizes UX and design consistency.",
-    image: "/images/projects/luna.jpg",
+    image: "/images/projects/lt1.png",
     images: [
-      "/images/projects/luna-detail-1.jpg",
-      "/images/projects/luna-detail-2.jpg",
-      "/images/projects/luna-detail-3.jpg",
+      "/images/projects/lt1.png",
+      "/images/projects/lt2.png",
+      "/images/projects/lt3.png",
     ],
     category: "Front-End",
     tags: [
@@ -164,10 +164,10 @@ export const projects: Project[] = [
       "Earth-toned design system with custom CSS variables",
     ],
     technologies: [
-      "Next.js 15",
-      "React 19",
-      "TypeScript 5",
-      "Tailwind CSS 4",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "React",
       "Swiper.js",
       "Heroicons",
     ],

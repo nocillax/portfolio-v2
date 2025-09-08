@@ -52,8 +52,7 @@ export default function AboutSection() {
               About me
             </span>
             <h2 className="text-3xl md:text-4xl font-serif text-dark dark:text-primary mb-8">
-              Design-minded developer focused on building elegant, user-centered
-              experiences
+              Developer & designer creating elegant, user-centered experiences
             </h2>
 
             {/* Profile image - centered in mobile view */}

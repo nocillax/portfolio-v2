@@ -9,12 +9,12 @@
 export const personalInfo = {
   // Basic Information
   name: "nocillax",
-  fullName: "Md Asif Chowdhury",
+  fullName: "MD ASIF CHOWDHURY",
   title: "Full Stack Developer",
   location: "Dhaka, Bangladesh",
 
   // About Section
-  bio: "Full Stack Developer skilled in building scalable web applications, specializing in frontend/backend frameworks, database design, and modern UI/UX practices. Passionate about solving real-world problems with elegant code and clean design.",
+  bio: "I’m a Full Stack Developer with a passion for crafting scalable web applications that merge solid engineering with thoughtful design. I love solving real-world problems through clean code, intuitive interfaces, and modern UX practices.",
 
   // Contact Information
   email: "asifjarif@gmail.com",

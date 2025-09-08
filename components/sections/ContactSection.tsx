@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FiGithub,
   FiLinkedin,
   FiFacebook,
   FiMail,
-  FiArrowRight,
+  FiDownload,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { personalInfo } from "@/data/personalInfo";
@@ -15,72 +14,28 @@ import { personalInfo } from "@/data/personalInfo";
 /**
  * ContactSection Component
  *
- * The contact section of the portfolio with:
- * - Contact form
- * - Social media links
- * - Contact information
- * - Location details
+ * A minimalist contact section for the portfolio with:
+ * - Direct contact information (email, LinkedIn, WhatsApp)
+ * - "Download Resume" button
+ * - Social media links in a clean layout
+ * - Location information
  *
- * Features form handling and animations for a smooth UX
+ * Features a clean two-column layout on desktop and stacked on mobile
  */
 export default function ContactSection() {
-  // Form state
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  // Form submission state
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
-
-  /**
-   * Handles changes to form inputs
-   * @param e - Input change event
-   */
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  /**
-   * Handles form submission
-   * Demo only - simulates a form submission
-   * @param e - Form submission event
-   */
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission with a delay
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage(
-        "Thank you for your message! This is a demo form, so no actual message was sent."
-      );
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
-  };
-
   return (
     <section
       id="contact"
       className="py-24 md:py-32 bg-paper dark:bg-dark-paper"
     >
-      <div className="container mx-auto px-6 md:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header with minimalist style */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-md mb-16"
+          className="mb-16"
         >
           <span className="block text-sm uppercase tracking-widest text-accent dark:text-accent-dark font-sans mb-2">
             Contact
@@ -89,190 +44,111 @@ export default function ContactSection() {
             Let's discuss your next project
           </h2>
           <div className="w-12 h-px bg-accent/30 dark:bg-accent-dark/30 my-6"></div>
-          <p className="text-stone dark:text-stone-dark font-sans">
-            I'm currently available for freelance projects or full-time
-            positions. Feel free to reach out if you're looking for a developer
-            focused on creating elegant, efficient, and user-friendly
-            applications.
+          <p className="text-stone dark:text-stone-dark font-sans mb-10">
+            Let’s build something meaningful together. I’m open to freelance
+            projects and full-time roles - drop me a message anytime.
           </p>
+
+          {/* Action button */}
+          <div className="flex flex-col sm:flex-row items-start gap-6 mt-8">
+            {/* Download Resume Button */}
+            <a
+              href={personalInfo.resumeLink}
+              download
+              className="group flex items-center gap-2 px-8 py-3 bg-white dark:bg-dark text-dark dark:text-primary font-sans text-base font-medium border border-accent/20 dark:border-accent-dark/30 hover:border-accent dark:hover:border-accent-dark hover:bg-accent/5 dark:hover:bg-accent-dark/5 transition-colors duration-300 min-w-[180px]"
+            >
+              <FiDownload className="group-hover:scale-110 transition-transform duration-300" />
+              Download Resume
+            </a>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-          {/* Contact Form - Takes more space */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-3"
-          >
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Name field */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
-                />
-              </div>
-
-              {/* Email field */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
-                />
-              </div>
-
-              {/* Message field */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-dark dark:text-primary mb-2 font-sans"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full bg-white dark:bg-dark-secondary text-dark dark:text-primary py-3 px-4 border border-accent/20 dark:border-accent-dark/30 focus:outline-none focus:border-accent dark:focus:border-accent-dark focus:ring-1 focus:ring-accent/30 dark:focus:ring-accent-dark/30 font-sans"
-                ></textarea>
-              </div>
-
-              {/* Submit button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="group flex items-center gap-2 px-8 py-3 bg-dark dark:bg-accent-dark text-white font-sans text-base font-medium border border-dark dark:border-accent-dark hover:bg-white dark:hover:bg-dark hover:text-dark dark:hover:text-primary transition-colors duration-300 disabled:opacity-70 disabled:pointer-events-none"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-
-              {/* Form submission feedback message */}
-              {submitMessage && (
-                <div className="mt-4 p-4 bg-accent/5 dark:bg-accent-dark/5 text-dark dark:text-primary border border-accent/20 dark:border-accent-dark/20 font-sans">
-                  {submitMessage}
+        {/* Contact information in two columns */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
+            {/* Left column: Contact information */}
+            <div className="space-y-8 text-left">
+              {/* Email contact */}
+              <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
+                  <FiMail
+                    size={20}
+                    className="text-accent dark:text-accent-dark"
+                  />
                 </div>
-              )}
-            </form>
-          </motion.div>
-
-          {/* Contact Info - Smaller column */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-2 lg:border-l lg:border-accent/20 dark:lg:border-accent-dark/20 lg:pl-10"
-          >
-            <div className="space-y-8">
-              {/* Contact information */}
-              <div>
-                <h3 className="font-serif text-xl text-dark dark:text-primary mb-6">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  {/* Email contact */}
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1">
-                      <FiMail
-                        size={20}
-                        className="text-accent dark:text-accent-dark"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
-                        Email
-                      </h4>
-                      <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
-                      >
-                        {personalInfo.email}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* LinkedIn contact */}
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1">
-                      <FiLinkedin
-                        size={20}
-                        className="text-accent dark:text-accent-dark"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
-                        LinkedIn
-                      </h4>
-                      <a
-                        href={personalInfo.socials.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
-                      >
-                        {personalInfo.socials.linkedin.replace("https://", "")}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* WhatsApp contact */}
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1">
-                      <FaWhatsapp
-                        size={20}
-                        className="text-accent dark:text-accent-dark"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
-                        WhatsApp
-                      </h4>
-                      <a
-                        href={personalInfo.socials.whatsapp}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
-                      >
-                        {personalInfo.phone}
-                      </a>
-                    </div>
-                  </div>
+                <div>
+                  <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
+                    Email
+                  </h4>
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
+                  >
+                    {personalInfo.email}
+                  </a>
                 </div>
               </div>
 
+              {/* LinkedIn contact */}
+              <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
+                  <FiLinkedin
+                    size={20}
+                    className="text-accent dark:text-accent-dark"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
+                    LinkedIn
+                  </h4>
+                  <a
+                    href={personalInfo.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
+                  >
+                    {personalInfo.socials.linkedin.replace("https://", "")}
+                  </a>
+                </div>
+              </div>
+
+              {/* WhatsApp contact */}
+              <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
+                  <FaWhatsapp
+                    size={20}
+                    className="text-accent dark:text-accent-dark"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-sans font-medium text-dark dark:text-primary mb-1">
+                    WhatsApp
+                  </h4>
+                  <a
+                    href={personalInfo.socials.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone dark:text-stone-dark hover:text-accent dark:hover:text-accent-dark transition-colors font-sans"
+                  >
+                    {personalInfo.phone}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right column: Social links and location */}
+            <div className="space-y-10 md:border-l md:border-accent/20 md:dark:border-accent-dark/20 md:pl-8 text-right mt-5">
               {/* Social links */}
-              <div className="pt-8 border-t border-accent/20 dark:border-accent-dark/20">
-                <h3 className="font-serif text-lg text-dark dark:text-primary mb-4">
+              <div className="pb-8 border-b border-accent/20 dark:border-accent-dark/20">
+                <h3 className="font-serif text-xl text-dark dark:text-primary mb-6">
                   Connect
                 </h3>
-                <div className="flex space-x-5">
+                <div className="flex space-x-5 justify-end">
                   <a
                     href={personalInfo.socials.github}
                     target="_blank"
@@ -313,16 +189,21 @@ export default function ContactSection() {
               </div>
 
               {/* Location */}
-              <div className="pt-8 border-t border-accent/20 dark:border-accent-dark/20">
-                <p className="text-stone dark:text-stone-dark font-sans text-sm italic">
-                  Based in Tokyo, Japan.
+              <div>
+                <h3 className="font-serif text-xl text-dark dark:text-primary mb-4">
+                  Location
+                </h3>
+                <p className="text-stone dark:text-stone-dark font-sans text-base text-right">
+                  Based in {personalInfo.location}
                   <br />
-                  Available for remote work worldwide.
+                  <span className="text-sm opacity-80 mt-2 block">
+                    Available for remote work worldwide
+                  </span>
                 </p>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

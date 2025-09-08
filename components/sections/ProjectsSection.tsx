@@ -25,7 +25,8 @@ import {
 } from "../kawaii";
 
 export default function ProjectsSection() {
-  const categories = ["All", "Full-Stack", "Front-End", "WordPress", "QA"];
+  // const categories = ["All", "Full-Stack", "Front-End", "WordPress", "QA"];
+  const categories = ["All", "Full-Stack", "Front-End"];
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

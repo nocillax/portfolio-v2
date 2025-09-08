@@ -187,7 +187,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               >
-                Creating purposeful digital experiences through{" "}
+                Crafting purposeful digital experiences through{" "}
                 <motion.span
                   className="text-accent dark:text-accent-dark relative inline-block"
                   initial={{ opacity: 0 }}
@@ -213,8 +213,8 @@ export default function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.6 }}
                 >
-                  {personalInfo.title} specializing in crafting minimalist,
-                  user-centered web applications that balance form and function.
+                  {personalInfo.title} building minimalist, user-centered
+                  applications that balance form and function.
                 </motion.p>
 
                 {/* Call to action buttons */}

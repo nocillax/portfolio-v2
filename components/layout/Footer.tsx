@@ -22,10 +22,10 @@ export default function Footer() {
               href="#hero"
               className="inline-block text-xl md:text-2xl font-serif text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors"
             >
-              Takumi Sato
+              Md Asif Chowdhury
             </Link>
             <p className="text-stone dark:text-stone-dark mt-2 font-sans">
-              Developer & Designer
+              Full Stack Developer
             </p>
           </div>
 

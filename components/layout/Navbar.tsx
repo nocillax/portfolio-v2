@@ -79,7 +79,7 @@ export default function Navbar() {
             <KawaiiLogo className="w-8 h-8 md:w-10 md:h-10" />
           </span>
           <span className="text-xl md:text-2xl font-serif text-dark dark:text-primary">
-            <span className="text-accent">N</span>X
+            <span className="text-accent">nocilla</span>x
           </span>
         </Link>
 
