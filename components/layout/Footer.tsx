@@ -20,7 +20,7 @@ export default function Footer() {
           <div>
             <Link
               href="#hero"
-              className="inline-block text-xl md:text-2xl font-serif text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors"
+              className="inline-block text-xl font-serif text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors"
             >
               Md Asif Chowdhury
             </Link>

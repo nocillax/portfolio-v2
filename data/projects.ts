@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "Zustand",
       "Stripe API",
       "JWT Authentication",
-      "Multer for file uploads",
+      "Multer",
       "Nodemailer",
     ],
     challenges:
@@ -94,7 +94,7 @@ export const projects: Project[] = [
       "Razor Pages",
       "Bootstrap (SB Admin 2 Theme)",
       "AJAX + Select2",
-      "Toastr Notifications",
+      "Toastr",
       "Rotativa PDF Generator",
       "REST APIs",
     ],
@@ -111,12 +111,8 @@ export const projects: Project[] = [
       "A project lifecycle management platform built with Core PHP and MySQL, supporting Admin, Project Manager, Developer, and Client roles.",
     longDescription:
       "TeamSync facilitates structured collaboration across project stakeholders. Clients request projects via a form, which Admins review and assign to Project Managers. PMs manage developers, break projects into tasks, and track completion status. Developers update progress, submit deliverables, and receive feedback, while Clients monitor handovers and approve final outputs. The system uses manual routing and session handling in PHP with an AJAX-enhanced frontend. Despite minimal frameworks, the platform delivers role-based dashboards and task workflows effectively.",
-    image: "/images/projects/teamsync.jpg",
-    images: [
-      "/images/projects/teamsync-detail-1.jpg",
-      "/images/projects/teamsync-detail-2.jpg",
-      "/images/projects/teamsync-detail-3.jpg",
-    ],
+    image: "",
+    images: [],
     category: "Full-Stack",
     tags: ["Core PHP", "MySQL", "AJAX", "HTML", "CSS", "JavaScript"],
     features: [
@@ -131,7 +127,7 @@ export const projects: Project[] = [
     challenges:
       "Building a multi-role workflow platform without a modern PHP framework required careful session handling and manual routing logic. Optimized AJAX was implemented to make the UX smooth despite a minimal tech stack.",
     liveUrl: "",
-    githubUrl: "https://github.com/username/teamsync",
+    githubUrl: "https://github.com/nocillax/TeamSync",
   },
   {
     id: "fe-1",
@@ -174,7 +170,7 @@ export const projects: Project[] = [
     challenges:
       "Designing a visually immersive yet lightweight front-end with consistent theming and scalable component structure was challenging. Custom CSS variables and Tailwind utilities helped maintain uniform design.",
     liveUrl: "https://luna-tours.vercel.app",
-    githubUrl: "https://github.com/username/luna-tours",
+    githubUrl: "https://github.com/nocillax/raktch-frontend-assessment",
   },
   // Full-Stack Projects
   // {

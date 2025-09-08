@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { FallbackImage } from "@/components/ui";
 import {
   FiCode,
   FiDatabase,
@@ -38,10 +38,10 @@ export default function AboutSection() {
   }));
 
   return (
-    <SectionBackground variant="white" showPattern={true} patternOpacity={8}>
-      <section id="about" className="py-24 md:py-32 relative">
+    <SectionBackground variant="white" showPattern={true} patternOpacity={15}>
+      <section id="about" className="py-12 md:py-24 relative">
         {/* Add subtle floating shapes for visual interest */}
-        <FloatingShapes variant="minimal" density="low" colorOpacity={0} />
+        <FloatingShapes variant="standard" density="low" colorOpacity={10} />
         <div className="container mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Left column - Heading and text */}
@@ -59,18 +59,128 @@ export default function AboutSection() {
                 Developer & designer creating elegant, user-centered experiences
               </h2>
 
-              {/* Profile image - centered in mobile view */}
-              <div className="mt-12 mb-0 relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 overflow-hidden mx-auto lg:mx-0">
-                <div className="w-full h-full border border-accent/20 dark:border-accent-dark/30 bg-paper dark:bg-dark-paper relative">
-                  <Image
-                    src="/images/profile/profile.JPG"
-                    alt={personalInfo.fullName}
-                    fill
-                    className="object-cover"
-                    priority
+              {/* Enhanced profile image with Japanese-inspired design elements */}
+              <div className="mt-12 mb-12 relative w-full flex justify-center lg:justify-start">
+                <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
+                  {/* Animated background elements */}
+                  <motion.div
+                    className="absolute inset-4 bg-accent/5 dark:bg-accent-dark/5 rounded-full"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      rotate: [0, 5, 0],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
                   />
+
+                  {/* Main image with frame */}
+                  <div
+                    className="relative w-full h-full 
+                                before:content-[''] before:absolute before:inset-0
+                                before:border-2 before:border-accent/40 dark:before:border-accent-dark/40
+                                before:translate-x-3 before:translate-y-3 before:z-[-1]
+                                after:content-[''] after:absolute after:inset-0
+                                after:border-2 after:border-accent/20 dark:after:border-accent-dark/30
+                                after:-translate-x-3 after:-translate-y-3 after:z-[-1]"
+                  >
+                    {/* Clip path mask for hexagon shape */}
+                    <div className="w-full h-full overflow-hidden bg-paper dark:bg-dark-paper relative">
+                      {/* Subtle background pattern */}
+                      <div
+                        className="absolute inset-0 opacity-20 dark:opacity-10 z-0 mix-blend-overlay"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10z' fill-opacity='0.1'/%3E%3C/g%3E%3C/svg%3E\")",
+                        }}
+                      />
+
+                      <FallbackImage
+                        src="/images/profile/profile.JPG"
+                        alt={personalInfo.fullName}
+                        fill
+                        className="object-cover relative z-10
+                                  hover:scale-105
+                                  grayscale-[15%] hover:grayscale-0
+                                  transition-all duration-700 ease-out"
+                        priority
+                        sizes="(max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
+                      />
+
+                      {/* Subtle overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 dark:from-accent-dark/10 to-transparent z-20 mix-blend-overlay opacity-70 pointer-events-none" />
+                    </div>
+                  </div>
+
+                  {/* Origami-inspired decorations */}
+                  <div className="absolute -bottom-8 -right-8 w-24 h-24 rotate-12 opacity-80 dark:opacity-60">
+                    <motion.div
+                      initial={{ rotate: 10 }}
+                      animate={{ rotate: -5 }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-full h-full text-accent/40 dark:text-accent-dark/40"
+                      >
+                        <path d="M0,0 L100,0 L100,100 Z" fill="currentColor" />
+                        <path
+                          d="M0,0 L100,0 L50,50 Z"
+                          fill="currentColor"
+                          opacity="0.7"
+                        />
+                      </svg>
+                    </motion.div>
+                  </div>
+
+                  {/* Left side decoration */}
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 opacity-80 dark:opacity-60">
+                    <motion.div
+                      initial={{ rotate: -5 }}
+                      animate={{ rotate: 10 }}
+                      transition={{
+                        duration: 7,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <svg
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-full h-full text-accent/30 dark:text-accent-dark/30"
+                      >
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                        />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="20"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          fill="none"
+                        />
+                      </svg>
+                    </motion.div>
+                  </div>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-20 h-20 border border-accent/20 dark:border-accent-dark/30 z-[-1]"></div>
               </div>
             </motion.div>
 
@@ -87,13 +197,13 @@ export default function AboutSection() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="prose prose-lg max-w-none dark:prose-invert">
-                <p className="text-dark dark:text-primary text-lg font-medium mb-6 font-sans">
+                <p className="text-dark dark:text-primary text-lg font-medium mb-12 font-sans italic">
                   {personalInfo.bio}
                 </p>
 
                 {/* Work Experience Section */}
                 {personalInfo.experience && (
-                  <div className="mb-10">
+                  <div className="mb-12">
                     <h3 className="text-lg font-serif text-dark dark:text-primary mb-5 pb-2 border-b border-accent/10 dark:border-accent-dark/10">
                       Work Experience
                     </h3>
@@ -123,7 +233,7 @@ export default function AboutSection() {
 
                 {/* Education Section */}
                 {personalInfo.education && (
-                  <div className="mb-10">
+                  <div className="mb-12">
                     <h3 className="text-lg font-serif text-dark dark:text-primary mb-5 pb-2 border-b border-accent/10 dark:border-accent-dark/10">
                       Education
                     </h3>
@@ -149,8 +259,8 @@ export default function AboutSection() {
                 )}
 
                 {/* Tech stacks in a more elegant way */}
-                <div className="mt-12 pt-6 border-t border-accent/10 dark:border-accent-dark/10">
-                  <h3 className="text-lg font-serif text-dark dark:text-primary mb-8">
+                <div className="mb-12">
+                  <h3 className="text-lg font-serif text-dark dark:text-primary mb-5 pb-2 border-b border-accent/10 dark:border-accent-dark/10">
                     Technical Expertise
                   </h3>
 
@@ -186,7 +296,7 @@ export default function AboutSection() {
 
                 {/* Awards Section */}
                 {personalInfo.awards && (
-                  <div className="mb-10">
+                  <div className="mb-12">
                     <h3 className="text-lg font-serif text-dark dark:text-primary mb-5 pb-2 border-b border-accent/10 dark:border-accent-dark/10">
                       Awards & Recognition
                     </h3>

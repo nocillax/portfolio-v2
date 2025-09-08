@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FiExternalLink, FiGithub, FiEye } from "react-icons/fi";
 import { Project } from "@/data/projects";
-import Image from "next/image";
+import { FallbackImage } from "@/components/ui";
 
 /**
  * ProjectCard Component Props
@@ -56,8 +56,8 @@ export default function ProjectCard({
           <div className="relative w-full h-full flex items-center justify-center bg-paper dark:bg-dark-secondary group-hover:scale-[1.06] group-hover:bg-paper/90 group-hover:border-accent/40 dark:group-hover:bg-dark-secondary/90 dark:group-hover:border-accent-dark/40 transition-all duration-500">
             {/* Project image implementation with Next.js Image component */}
             <div className="relative w-full h-full image-frame">
-              <Image
-                src={project.image || "/images/projects/placeholder.jpg"}
+              <FallbackImage
+                src={project.image}
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
@@ -68,20 +68,20 @@ export default function ProjectCard({
         </div>
 
         {/* Project details section */}
-        <div className="p-6 bg-white dark:bg-dark-paper">
+        <div className="p-6 bg-white dark:bg-dark-paper h-[280px] flex flex-col">
           {/* Header with category, title and links */}
           <div className="flex justify-between items-start">
-            <div>
+            <div className="flex-1 min-w-0">
               <span className="text-xs uppercase font-sans tracking-widest text-accent dark:text-accent-dark">
                 {project.category}
               </span>
-              <h3 className="text-xl font-serif mt-1 text-dark dark:text-primary">
+              <h3 className="text-xl font-serif mt-1 text-dark dark:text-primary line-clamp-2 min-h-[3.5rem]">
                 {project.title}
               </h3>
             </div>
 
             {/* External links */}
-            <div className="flex space-x-4 mt-1">
+            <div className="flex space-x-4 mt-1 ml-4 flex-shrink-0">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
@@ -107,8 +107,8 @@ export default function ProjectCard({
             </div>
           </div>
 
-          {/* Project description */}
-          <p className="mt-4 text-stone dark:text-stone-dark text-sm line-clamp-3 leading-relaxed font-sans">
+          {/* Project description - with increased prominence */}
+          <p className="mt-4 text-stone dark:text-stone-dark text-sm line-clamp-3 leading-relaxed font-sans min-h-[4.5rem]">
             {project.description}
           </p>
 
@@ -116,7 +116,7 @@ export default function ProjectCard({
           <div className="w-16 h-px bg-accent/10 dark:bg-accent-dark/10 my-5"></div>
 
           {/* Project tags with max display limit */}
-          <div className="flex flex-wrap gap-3 mt-3">
+          <div className="flex flex-wrap gap-3">
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
@@ -132,10 +132,10 @@ export default function ProjectCard({
             )}
           </div>
 
-          {/* View Details Button */}
+          {/* View Details Button - Added mt-auto to push to bottom */}
           <button
             onClick={() => onViewDetails(project)}
-            className="w-full mt-6 relative group clickable"
+            className="w-full mt-auto pt-4 relative group clickable"
             aria-label="View project details"
           >
             <div className="py-3 flex items-center justify-center gap-3 font-sans text-sm tracking-wide text-dark dark:text-primary hover:text-accent dark:hover:text-accent-dark transition-colors duration-500 border-t border-transparent group-hover:border-accent/30 dark:group-hover:border-accent-dark/30">

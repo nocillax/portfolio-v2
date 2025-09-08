@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { UniversalCursor } from "@/components/background";
 
 export const metadata: Metadata = {
   title: "Portfolio | Full Stack Web Developer",
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <UniversalCursor />
+        </ThemeProvider>
       </body>
     </html>
   );

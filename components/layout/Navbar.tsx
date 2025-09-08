@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { KawaiiLogo } from "../kawaii";
-import { ThemeToggle } from "../ui";
+import { ThemeToggle, FallbackImage } from "../ui";
 
 /**
  * Navigation links configuration
@@ -65,8 +64,8 @@ export default function Navbar() {
     <motion.header
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white dark:bg-dark dark:bg-opacity-95 shadow-sm py-3"
-          : "bg-transparent py-6"
+          ? "bg-white dark:bg-dark dark:bg-opacity-94 shadow-sm py-3"
+          : "bg-opacity-98 py-6"
       }`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -76,11 +75,16 @@ export default function Navbar() {
         {/* Logo and brand name */}
         <Link href="#hero" className="flex items-center gap-2 group">
           <span className="text-accent/90 group-hover:text-accent transition-colors duration-300">
-            <KawaiiLogo className="w-8 h-8 md:w-10 md:h-10" />
+            <FallbackImage
+              src="/images/logo/nocillax-logo.png"
+              alt="Nocillax Logo"
+              width={50}
+              height={50}
+            />
           </span>
-          <span className="text-xl md:text-2xl font-serif text-dark dark:text-primary">
+          {/* <span className="text-xl md:text-2xl font-sans text-dark dark:text-primary">
             <span className="text-accent">nocilla</span>x
-          </span>
+          </span> */}
         </Link>
 
         {/* Desktop Navigation - only visible on md breakpoint and above */}

@@ -40,7 +40,6 @@ export const personalInfo = {
     "PostgreSQL",
     "Tailwind CSS",
     "ASP.NET MVC",
-
     "PHP",
     "TypeScript",
     "MSSQL",

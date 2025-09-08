@@ -51,7 +51,7 @@ export const FloatingElement = ({
 
   return (
     <motion.div
-      className={`absolute pointer-events-none opacity-70 ${sizeClasses[size]}`}
+      className={`absolute pointer-events-none ${sizeClasses[size]}`}
       style={positionStyle}
       animate={{
         y: [0, -15, 0],
@@ -101,7 +101,7 @@ export const BouncingElement = ({
 
   return (
     <motion.div
-      className={`absolute pointer-events-none opacity-70 ${bouncingSizeClasses[size]}`}
+      className={`absolute pointer-events-none ${bouncingSizeClasses[size]}`}
       style={positionStyle}
       animate={{
         y: [0, -10, 0],
@@ -153,7 +153,7 @@ export const SpinElement = ({
 
   return (
     <motion.div
-      className={`absolute pointer-events-none opacity-70 ${spinSizeClasses[size]}`}
+      className={`absolute pointer-events-none ${spinSizeClasses[size]}`}
       style={positionStyle}
       animate={{
         rotate: [0, 360],
@@ -227,7 +227,7 @@ export const PathFloatingElement = ({
 }: AnimatedElementProps) => {
   return (
     <motion.div
-      className={`absolute pointer-events-none opacity-70 ${sizeClasses[size]}`}
+      className={`absolute pointer-events-none ${sizeClasses[size]}`}
       animate={{
         x: [0, 40, 80, 40, 0],
         y: [0, 30, 0, -30, 0],
@@ -276,7 +276,7 @@ export const WiggleElement = ({
 
   return (
     <motion.div
-      className={`absolute pointer-events-none opacity-70 ${wiggleSizeClasses[size]}`}
+      className={`absolute pointer-events-none ${wiggleSizeClasses[size]}`}
       style={positionStyle}
       animate={{
         rotate: [0, 10, -10, 10, 0],

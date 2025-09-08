@@ -33,10 +33,10 @@ export default function ProjectsSection() {
   };
 
   return (
-    <SectionBackground variant="white" showPattern={true} patternOpacity={5}>
-      <section id="projects" className="py-24 md:py-32 relative">
+    <SectionBackground variant="white" showPattern={true} patternOpacity={15}>
+      <section id="projects" className="py-12 md:py-24 relative">
         {/* Centralized floating shapes */}
-        <FloatingShapes variant="playful" density="high" colorOpacity={0} />
+        <FloatingShapes variant="standard" density="high" colorOpacity={10} />
 
         <div className="container mx-auto px-6 relative">
           {/* Section header with refined typography */}
@@ -50,7 +50,7 @@ export default function ProjectsSection() {
             {/* Asymmetrical layout with left alignment */}
             <div className="max-w-md relative">
               <span className="block text-sm uppercase tracking-widest text-accent dark:text-accent-dark mb-3 font-sans">
-                Selected Works
+                Featured Works
               </span>
 
               <h2 className="text-3xl md:text-4xl mb-5 font-serif text-dark dark:text-primary">

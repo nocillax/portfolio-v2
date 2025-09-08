@@ -30,14 +30,14 @@ export default function HeroSection() {
     >
       <section
         id="hero"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+        className="min-h-screen flex items-center md:justify-center relative overflow-hidden pt-16 md:pt-20"
       >
-        {/* Centralized floating shapes with high density for hero section */}
-        <FloatingShapes variant="playful" density="high" colorOpacity={15} />
+        {/* Centralized floating shapes with fewer, larger elements for hero section */}
+        <FloatingShapes variant="standard" density="high" colorOpacity={10} />
 
         {/* Main content container */}
-        <div className="container mx-auto px-6 md:px-10 lg:px-16 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+        <div className="container mx-auto px-6 md:px-10 lg:px-16 relative z-10 py-10 md:py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16 items-start md:items-center">
             {/* Left column - Main content */}
             <motion.div
               className="lg:col-span-2"
@@ -47,8 +47,8 @@ export default function HeroSection() {
             >
               <div className="max-w-3xl">
                 {/* Greeting and name */}
-                <div className="mb-6">
-                  <span className="text-lg sm:text-xl font-serif text-stone dark:text-stone-dark block mb-1">
+                <div className="mb-6 sm:mb-8">
+                  <span className="text-lg sm:text-xl font-serif text-stone dark:text-stone-dark block mb-2 sm:mb-1">
                     Hi, I'm
                   </span>
                   <div className="overflow-hidden">
@@ -78,7 +78,7 @@ export default function HeroSection() {
 
                 {/* Main heading with animated underline */}
                 <motion.h2
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-dark dark:text-primary leading-tight mb-8 mt-6"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-dark dark:text-primary leading-tight mb-10 sm:mb-8 mt-8 sm:mt-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -102,9 +102,9 @@ export default function HeroSection() {
                 </motion.h2>
 
                 {/* Introduction text and CTA buttons */}
-                <div className="mt-10">
+                <div className="mt-12 sm:mt-10">
                   <motion.p
-                    className="text-stone dark:text-stone-dark text-lg md:text-xl mb-10 font-sans max-w-lg"
+                    className="text-stone dark:text-stone-dark text-lg md:text-xl mb-12 sm:mb-10 font-sans max-w-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.6 }}
@@ -115,7 +115,7 @@ export default function HeroSection() {
 
                   {/* Call to action buttons */}
                   <motion.div
-                    className="flex flex-wrap gap-5 mt-12"
+                    className="flex flex-wrap gap-5 mt-16 sm:mt-12"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
@@ -183,7 +183,7 @@ export default function HeroSection() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}

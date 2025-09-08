@@ -10,7 +10,7 @@ import {
   FiGithub,
 } from "react-icons/fi";
 import { Project } from "@/data/projects";
-import Image from "next/image";
+import { FallbackImage } from "@/components/ui";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -123,7 +123,7 @@ export default function ProjectModal({
                       >
                         {/* Real implementation with Next.js Image */}
                         <div className="relative w-full h-full">
-                          <Image
+                          <FallbackImage
                             src={
                               project.images?.[currentImageIndex] ||
                               project.image
@@ -183,7 +183,7 @@ export default function ProjectModal({
                 ) : (
                   // Fallback if no gallery images - use main project image
                   <div className="w-full h-full bg-paper dark:bg-dark-secondary relative">
-                    <Image
+                    <FallbackImage
                       src={project.image}
                       alt={project.title}
                       fill

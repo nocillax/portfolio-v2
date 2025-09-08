@@ -12,22 +12,21 @@ import {
 
   // Kawaii shapes
   KawaiiCircle,
-  KawaiiTriangle,
+  KawaiiCrystal,
   KawaiiStar,
   KawaiiSnowflake,
   KawaiiCloud,
-  KawaiiSakura,
-  KawaiiWave,
-  KawaiiDots,
-  KawaiiLeaf,
-  KawaiiSplash,
-  KawaiiRipple,
+  KawaiiFlower,
+  KawaiiOrigami,
+  KawaiiMoon,
+  KawaiiSun,
 } from "../kawaii";
 
 interface FloatingShapesProps {
   density?: "low" | "medium" | "high";
   variant?: "minimal" | "standard" | "playful";
   colorOpacity?: number;
+  // Removed enableCursorFollower prop since we're using UniversalCursor now
 }
 
 /**
@@ -51,107 +50,96 @@ export default function FloatingShapes({
   variant = "standard",
   colorOpacity = 20,
 }: FloatingShapesProps) {
-  // Convert opacity to a decimal with string format
-  const opacityStr = `${colorOpacity / 100}`;
+  // Convert opacity to a decimal with string format (limit between 0-100)
+  const clampedOpacity = Math.max(0, Math.min(100, colorOpacity));
+  const opacityStr = `${clampedOpacity}`;
 
-  // Basic minimal shapes that appear in all variants
+  // Larger, fewer shapes - Basic minimal variant with just a few large shapes
   const minimalShapes = (
     <>
-      <FloatingElement delay={0} size="xs" x="10%" y="20%">
-        <KawaiiCircle className={`bg-accent/${opacityStr}`} />
+      <FloatingElement delay={0} size="lg" x="15%" y="20%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiCircle className="text-accent" size={40} />
+        </div>
       </FloatingElement>
-      <FloatingElement delay={2} size="sm" x="15%" y="30%">
-        <KawaiiTriangle className={`border-b-accent/${opacityStr}`} />
-      </FloatingElement>
-      <SpinElement delay={1} size="xs" slow={true} x="80%" y="25%">
-        <KawaiiStar className={`text-accent/${opacityStr}`} size={10} />
+      <SpinElement delay={1.5} size="lg" slow={true} x="75%" y="30%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiSnowflake className="text-accent" size={45} />
+        </div>
       </SpinElement>
-      <BouncingElement delay={1.5} size="xs" x="75%" y="70%">
-        <KawaiiCircle className={`bg-accent/${opacityStr}`} />
+      <BouncingElement delay={2.2} size="lg" x="25%" y="70%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiCloud className="text-accent" size={50} />
+        </div>
       </BouncingElement>
-      <PulseElement delay={1.8} size="md" x="5%" y="60%">
-        <KawaiiCloud
-          className={`text-accent/${parseInt(opacityStr) / 2}`}
-          size={24}
-        />
-      </PulseElement>
     </>
   );
 
-  // Standard set of shapes for most sections
+  // Standard set with medium number of larger shapes
   const standardShapes = (
     <>
-      {minimalShapes}
-      <PathFloatingElement delay={0.3} size="xs">
-        <KawaiiSakura
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={12}
-        />
-      </PathFloatingElement>
-      <WiggleElement delay={2.5} size="sm" x="85%" y="15%">
-        <KawaiiSnowflake className={`text-accent/${opacityStr}`} size={12} />
-      </WiggleElement>
-      <SpinElement delay={3} size="xs" x="60%" y="80%" slow={true}>
-        <KawaiiStar
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={6}
-        />
-      </SpinElement>
-      <BouncingElement delay={0.7} size="xs" x="25%" y="85%">
-        <KawaiiDots className={`text-accent/${opacityStr}`} />
-      </BouncingElement>
-      <FloatingElement delay={2.2} size="xs" x="40%" y="15%">
-        <KawaiiTriangle className={`border-b-accent/${opacityStr}`} />
+      <FloatingElement delay={0.2} size="lg" x="10%" y="25%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiStar className="text-accent" size={20} />
+        </div>
       </FloatingElement>
-      <PathFloatingElement delay={1.5} size="sm">
-        <KawaiiSakura
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={10}
-        />
-      </PathFloatingElement>
-      <WiggleElement delay={0.9} size="xs" x="65%" y="35%">
-        <KawaiiWave className={`text-accent/${opacityStr}`} />
+      <WiggleElement delay={1.5} size="lg" x="80%" y="20%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiSnowflake className="text-accent" size={42} />
+        </div>
       </WiggleElement>
+      <PulseElement delay={0.8} size="lg" x="20%" y="70%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiCloud className="text-accent" size={50} />
+        </div>
+      </PulseElement>
+      <SpinElement delay={1.2} size="md" x="60%" y="65%" slow={true}>
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiStar className="text-accent" size={36} />
+        </div>
+      </SpinElement>
+      <PathFloatingElement delay={2} size="lg">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiMoon className="text-accent" size={40} />
+        </div>
+      </PathFloatingElement>
     </>
   );
 
-  // Playful set with more shapes and animations
+  // Playful set with 8-9 larger shapes
   const playfulShapes = (
     <>
-      {standardShapes}
-      <FloatingElement delay={1.3} size="sm" x="27%" y="22%">
-        <KawaiiSnowflake className={`text-accent/${opacityStr}`} size={14} />
+      <FloatingElement delay={0} size="lg" x="12%" y="15%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiCloud className="text-accent" size={48} />
+        </div>
       </FloatingElement>
-      <BouncingElement delay={0.4} size="xs" x="68%" y="12%">
-        <KawaiiLeaf
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={10}
-        />
-      </BouncingElement>
-      <SpinElement delay={2.7} size="xs" x="48%" y="60%" slow={true}>
-        <KawaiiSplash className={`text-accent/${opacityStr}`} size={12} />
+      <SpinElement delay={1} size="lg" slow={true} x="78%" y="20%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiSnowflake className="text-accent" size={45} />
+        </div>
       </SpinElement>
-      <WiggleElement delay={3.5} size="sm" x="12%" y="75%">
-        <KawaiiRipple className={`text-accent/${opacityStr}`} size={16} />
-      </WiggleElement>
-      <PathFloatingElement delay={1.9} size="xs">
-        <KawaiiStar
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={8}
-        />
-      </PathFloatingElement>
-      <PulseElement delay={2.1} size="sm" x="82%" y="44%">
-        <KawaiiTriangle className={`border-b-accent/${opacityStr}`} />
+
+      <PulseElement delay={0.3} size="lg" x="82%" y="65%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiMoon className="text-accent" size={42} />
+        </div>
       </PulseElement>
-      <FloatingElement delay={3.3} size="xs" x="53%" y="8%">
-        <KawaiiSnowflake
-          className={`text-accent/${parseInt(opacityStr) + 10}`}
-          size={9}
-        />
-      </FloatingElement>
-      <BouncingElement delay={1.0} size="sm" x="35%" y="68%">
-        <KawaiiCloud className={`text-accent/${opacityStr}`} size={16} />
+      <BouncingElement delay={1.2} size="lg" x="55%" y="40%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiStar className="text-accent" size={38} />
+        </div>
       </BouncingElement>
+      <FloatingElement delay={2.2} size="lg" x="40%" y="15%">
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiSun className="text-accent" size={40} />
+        </div>
+      </FloatingElement>
+      <SpinElement delay={0.7} size="lg" x="75%" y="45%" slow={true}>
+        <div className={`opacity-${opacityStr}`}>
+          <KawaiiOrigami className="text-accent" size={36} />
+        </div>
+      </SpinElement>
     </>
   );
 
@@ -169,10 +157,9 @@ export default function FloatingShapes({
     }
   };
 
-  // Apply density filter to shapes
+  // Apply density filter - with fewer shapes, we can simplify this
   const applyDensityFilter = (shapes: React.ReactNode) => {
-    // The shapes are already created, but we can conditionally render them based on density
-    // This is a simplified approach - a more advanced one would actually generate different numbers of shapes
+    // Since we now have fewer, larger shapes, we can just return them as is
     return shapes;
   };
 

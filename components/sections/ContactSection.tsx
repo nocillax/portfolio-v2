@@ -25,10 +25,10 @@ import { SectionBackground, FloatingShapes } from "../background";
  */
 export default function ContactSection() {
   return (
-    <SectionBackground variant="white" showPattern={true} patternOpacity={5}>
-      <section id="contact" className="py-24 md:py-32 relative">
-        <FloatingShapes variant="minimal" density="low" colorOpacity={0} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionBackground variant="white" showPattern={true} patternOpacity={15}>
+      <section id="contact" className="py-12 md:py-24 relative">
+        <FloatingShapes variant="standard" density="low" colorOpacity={10} />
+        <div className="container mx-auto px-6 md:px-10">
           {/* Section header with minimalist style */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -69,12 +69,13 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true, margin: "-100px" }}
+            className="max-w-full"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
               {/* Left column: Contact information */}
-              <div className="space-y-8 text-left">
+              <div className="space-y-8 md:col-span-6">
                 {/* Email contact */}
-                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -ml-3 rounded-md transition-colors">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
                     <FiMail
                       size={20}
@@ -95,7 +96,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* LinkedIn contact */}
-                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -ml-3 rounded-md transition-colors">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
                     <FiLinkedin
                       size={20}
@@ -118,7 +119,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* WhatsApp contact */}
-                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -mx-3 rounded-md transition-colors">
+                <div className="flex items-start space-x-4 group hover:bg-accent/5 dark:hover:bg-accent-dark/5 p-3 -ml-3 rounded-md transition-colors">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 dark:bg-accent-dark/10 group-hover:bg-accent/20 dark:group-hover:bg-accent-dark/20 transition-colors">
                     <FaWhatsapp
                       size={20}
@@ -142,7 +143,7 @@ export default function ContactSection() {
               </div>
 
               {/* Right column: Social links and location */}
-              <div className="space-y-10 md:border-l md:border-accent/20 md:dark:border-accent-dark/20 md:pl-8 text-right mt-5">
+              <div className="space-y-10 md:col-span-6 md:border-l md:border-accent/20 md:dark:border-accent-dark/20 md:pl-8 text-right">
                 {/* Social links */}
                 <div className="pb-8 border-b border-accent/20 dark:border-accent-dark/20">
                   <h3 className="font-serif text-xl text-dark dark:text-primary mb-6">
