@@ -53,7 +53,7 @@ export default function HeroSection() {
                   </span>
                   <div className="overflow-hidden">
                     <motion.h1
-                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-dark dark:text-primary whitespace-nowrap"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-dark dark:text-primary whitespace-nowrap"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1 }}

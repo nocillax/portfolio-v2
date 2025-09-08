@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ThemeToggle, FallbackImage } from "../ui";
@@ -31,6 +31,29 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
+  const [lastManualSection, setLastManualSection] = useState<string | null>(null);
+  
+  // We'll use this ref to make sure we initialize the animation correctly
+  const isFirstRender = useRef(true);
+
+  // Set first render to false after mount
+  useEffect(() => {
+    // After the component has rendered once, set isFirstRender to false
+    isFirstRender.current = false;
+  }, []);
+
+  // Effect to handle manual section selection
+  useEffect(() => {
+    if (lastManualSection) {
+      // When a section is manually selected, keep it active for a short period
+      const lockPeriod = setTimeout(() => {
+        // After the lock period, clear the manual selection
+        setLastManualSection(null);
+      }, 1500); // Lock for 1.5 seconds to allow smooth scrolling
+      
+      return () => clearTimeout(lockPeriod);
+    }
+  }, [lastManualSection]);
 
   // Effect to handle scroll events and update active section
   useEffect(() => {
@@ -42,23 +65,59 @@ export default function Navbar() {
         setIsScrolled(false);
       }
 
-      // Update active section based on scroll position
-      const sections = navLinks.map((link) => link.href);
-      const currentPosition = window.scrollY + 100;
+      // If we have a manually selected section that's still locked, don't change the active section
+      if (lastManualSection) {
+        return;
+      }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.querySelector(sections[i]);
-        if (section && (section as HTMLElement).offsetTop <= currentPosition) {
-          setActiveSection(sections[i]);
-          break;
+      // Get viewport height for calculations
+      const viewportHeight = window.innerHeight;
+      const scrollPosition = window.scrollY;
+      
+      // Keep track of which section has the most visibility
+      let maxVisibleSection = null;
+      let maxVisiblePercentage = 0;
+
+      // Check each section
+      navLinks.forEach(({ href }) => {
+        const section = document.querySelector(href);
+        if (!section) return;
+
+        const rect = (section as HTMLElement).getBoundingClientRect();
+        
+        // Calculate how much of the section is visible
+        const visibleTop = Math.max(0, rect.top);
+        const visibleBottom = Math.min(viewportHeight, rect.bottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        
+        // Calculate what percentage of the viewport this section occupies
+        const visiblePercentage = visibleHeight / viewportHeight;
+
+        // If this section is more visible than previous sections, make it active
+        if (visiblePercentage > maxVisiblePercentage) {
+          maxVisiblePercentage = visiblePercentage;
+          maxVisibleSection = href;
         }
+      });
+
+      // If a section is significantly visible, set it as active
+      if (maxVisibleSection && maxVisiblePercentage > 0.15) {
+        setActiveSection(maxVisibleSection);
+      }
+      // Special case for the hero section at the very top
+      else if (scrollPosition < 100) {
+        setActiveSection("#hero");
       }
     };
 
     // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
+    
+    // Trigger once on mount to set initial active section
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastManualSection]);
 
   return (
     <motion.header
@@ -99,14 +158,32 @@ export default function Navbar() {
                     ? "text-dark dark:text-primary font-medium"
                     : "text-stone hover:text-dark dark:text-stone dark:hover:text-primary"
                 } transition-colors duration-300`}
-                onClick={() => setActiveSection(link.href)}
+                onClick={(e) => {
+                  // Set active section explicitly when clicked
+                  setActiveSection(link.href);
+                  // Track that this was a manual selection
+                  setLastManualSection(link.href);
+                  
+                  // Add a small delay to ensure the active section persists
+                  // after the scroll animation begins
+                  setTimeout(() => {
+                    setActiveSection(link.href);
+                  }, 100);
+                }}
               >
                 {/* Animated underline indicator for active section */}
                 {activeSection === link.href && (
                   <motion.span
+                    layoutId="navUnderline"
                     className="absolute -bottom-1 left-0 w-full h-px bg-accent"
-                    layoutId="navIndicator"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    style={{ bottom: "-4px", transform: "translateY(0px)" }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 280,
+                      damping: 25,
+                      mass: 0.4,
+                      restDelta: 0.01
+                    }}
                   />
                 )}
                 {link.name}
@@ -174,6 +251,14 @@ export default function Navbar() {
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setActiveSection(link.href);
+                  // Track that this was a manual selection
+                  setLastManualSection(link.href);
+                  
+                  // Add a small delay to ensure the active section persists
+                  // after the scroll animation begins
+                  setTimeout(() => {
+                    setActiveSection(link.href);
+                  }, 100);
                 }}
               >
                 {link.name}
