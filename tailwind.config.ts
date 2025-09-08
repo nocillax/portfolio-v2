@@ -184,6 +184,22 @@ const config: Config = {
       spacing: {
         "128": "32rem",
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1.5rem",
+          md: "2.5rem",
+          lg: "4rem",
+        },
+        screens: {
+          sm: "100%",
+          md: "100%",
+          lg: "100%",
+          xl: "100%",
+          "2xl": "100%",
+        },
+      },
       letterSpacing: {
         widest: "0.2em",
         ultra: "0.3em",

@@ -42,11 +42,13 @@ export default function SectionBackground({
   };
 
   return (
-    <div className={`relative ${bgClasses[variant]}`}>
+    <div
+      className={`relative ${bgClasses[variant]} w-full max-w-full overflow-hidden`}
+    >
       {/* Paper texture pattern */}
       {showPattern && (
         <div
-          className={`absolute inset-0 paper-texture pointer-events-none`}
+          className={`absolute inset-0 paper-texture pointer-events-none bg-center bg-repeat w-full max-w-full`}
           style={{ opacity: patternOpacity / 100 }}
         />
       )}

@@ -42,7 +42,7 @@ export default function AboutSection() {
       <section id="about" className="py-12 md:py-24 relative">
         {/* Add subtle floating shapes for visual interest */}
         <FloatingShapes variant="standard" density="low" colorOpacity={10} />
-        <div className="container mx-auto px-6 md:px-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Left column - Heading and text */}
             <motion.div

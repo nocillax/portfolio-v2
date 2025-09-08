@@ -13,8 +13,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-paper dark:bg-dark-paper border-t border-accent/10 dark:border-dark-accent/20 py-12 px-6">
-      <div className="container mx-auto">
+    <footer className="bg-paper dark:bg-dark-paper border-t border-accent/10 dark:border-dark-accent/20 py-12 px-4 sm:px-6 w-full">
+      <div className="container mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side with name and title */}
           <div>

@@ -9,7 +9,7 @@
 export const personalInfo = {
   // Basic Information
   name: "nocillax",
-  fullName: "MD ASIF CHOWDHURY",
+  fullName: "ASIF CHOWDHURY",
   title: "Full Stack Developer",
   location: "Dhaka, Bangladesh",
 

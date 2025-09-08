@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen">
+      <body className="min-h-screen max-w-[100vw] overflow-x-hidden">
         <ThemeProvider>
           {children}
           <UniversalCursor />

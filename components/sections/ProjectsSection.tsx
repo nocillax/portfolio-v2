@@ -38,7 +38,7 @@ export default function ProjectsSection() {
         {/* Centralized floating shapes */}
         <FloatingShapes variant="standard" density="high" colorOpacity={10} />
 
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 relative w-full">
           {/* Section header with refined typography */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

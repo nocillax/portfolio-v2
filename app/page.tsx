@@ -23,7 +23,7 @@ import { ArtisticBackground } from "@/components/ui";
  */
 export default function Home() {
   return (
-    <main>
+    <main className="w-full overflow-hidden">
       <ArtisticBackground />
       <Navbar />
       <HeroSection />

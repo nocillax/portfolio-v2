@@ -30,13 +30,13 @@ export default function HeroSection() {
     >
       <section
         id="hero"
-        className="min-h-screen flex items-center md:justify-center relative overflow-hidden pt-16 md:pt-20"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-20 w-full max-w-full"
       >
         {/* Centralized floating shapes with fewer, larger elements for hero section */}
         <FloatingShapes variant="standard" density="high" colorOpacity={10} />
 
         {/* Main content container */}
-        <div className="container mx-auto px-6 md:px-10 lg:px-16 relative z-10 py-10 md:py-0">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-16 relative z-10 py-10 md:py-0 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16 items-start md:items-center">
             {/* Left column - Main content */}
             <motion.div
@@ -53,7 +53,7 @@ export default function HeroSection() {
                   </span>
                   <div className="overflow-hidden">
                     <motion.h1
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-dark dark:text-primary whitespace-nowrap"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-dark dark:text-primary whitespace-nowrap"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1 }}

@@ -28,7 +28,7 @@ export default function ContactSection() {
     <SectionBackground variant="white" showPattern={true} patternOpacity={15}>
       <section id="contact" className="py-12 md:py-24 relative">
         <FloatingShapes variant="standard" density="low" colorOpacity={10} />
-        <div className="container mx-auto px-6 md:px-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-10 w-full">
           {/* Section header with minimalist style */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

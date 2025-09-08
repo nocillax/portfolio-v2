@@ -31,8 +31,10 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
-  const [lastManualSection, setLastManualSection] = useState<string | null>(null);
-  
+  const [lastManualSection, setLastManualSection] = useState<string | null>(
+    null
+  );
+
   // We'll use this ref to make sure we initialize the animation correctly
   const isFirstRender = useRef(true);
 
@@ -50,7 +52,7 @@ export default function Navbar() {
         // After the lock period, clear the manual selection
         setLastManualSection(null);
       }, 1500); // Lock for 1.5 seconds to allow smooth scrolling
-      
+
       return () => clearTimeout(lockPeriod);
     }
   }, [lastManualSection]);
@@ -73,7 +75,7 @@ export default function Navbar() {
       // Get viewport height for calculations
       const viewportHeight = window.innerHeight;
       const scrollPosition = window.scrollY;
-      
+
       // Keep track of which section has the most visibility
       let maxVisibleSection = null;
       let maxVisiblePercentage = 0;
@@ -84,12 +86,12 @@ export default function Navbar() {
         if (!section) return;
 
         const rect = (section as HTMLElement).getBoundingClientRect();
-        
+
         // Calculate how much of the section is visible
         const visibleTop = Math.max(0, rect.top);
         const visibleBottom = Math.min(viewportHeight, rect.bottom);
         const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-        
+
         // Calculate what percentage of the viewport this section occupies
         const visiblePercentage = visibleHeight / viewportHeight;
 
@@ -112,10 +114,10 @@ export default function Navbar() {
 
     // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
-    
+
     // Trigger once on mount to set initial active section
     handleScroll();
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastManualSection]);
 
@@ -130,7 +132,7 @@ export default function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="container mx-auto flex justify-between items-center px-6 md:px-10">
+      <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 md:px-10 w-full">
         {/* Logo and brand name */}
         <Link href="#hero" className="flex items-center gap-2 group">
           <span className="text-accent/90 group-hover:text-accent transition-colors duration-300">
@@ -163,7 +165,7 @@ export default function Navbar() {
                   setActiveSection(link.href);
                   // Track that this was a manual selection
                   setLastManualSection(link.href);
-                  
+
                   // Add a small delay to ensure the active section persists
                   // after the scroll animation begins
                   setTimeout(() => {
@@ -177,12 +179,12 @@ export default function Navbar() {
                     layoutId="navUnderline"
                     className="absolute -bottom-1 left-0 w-full h-px bg-accent"
                     style={{ bottom: "-4px", transform: "translateY(0px)" }}
-                    transition={{ 
-                      type: "spring", 
+                    transition={{
+                      type: "spring",
                       stiffness: 280,
                       damping: 25,
                       mass: 0.4,
-                      restDelta: 0.01
+                      restDelta: 0.01,
                     }}
                   />
                 )}
@@ -238,7 +240,7 @@ export default function Navbar() {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="container mx-auto px-6 flex flex-col space-y-6">
+          <div className="container mx-auto px-4 sm:px-6 md:px-10 flex flex-col space-y-6 w-full">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -253,7 +255,7 @@ export default function Navbar() {
                   setActiveSection(link.href);
                   // Track that this was a manual selection
                   setLastManualSection(link.href);
-                  
+
                   // Add a small delay to ensure the active section persists
                   // after the scroll animation begins
                   setTimeout(() => {
