@@ -82,8 +82,8 @@ export default function ProjectModal({
             transition={{ duration: 0.5 }}
             className="absolute inset-0 bg-dark/80"
             onClick={onClose}
+            style={{ backgroundImage: "none" }}
           />
-          <div className="absolute inset-0 paper-texture opacity-5 pointer-events-none"></div>
 
           {/* Modal Content - with an enhanced card growing animation */}
           <motion.div
@@ -96,6 +96,7 @@ export default function ProjectModal({
               opacity: { duration: 0.4 },
             }}
             className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-dark-paper overflow-hidden z-10 elegant-shadow-dark border border-accent/20 dark:border-accent-dark/20"
+            style={{ backgroundImage: "none" }}
           >
             {/* Close Button - Elegant style */}
             <button
@@ -108,7 +109,10 @@ export default function ProjectModal({
 
             <div className="overflow-y-auto max-h-[90vh] scrollbar-hide">
               {/* Image Gallery */}
-              <div className="relative aspect-video bg-white dark:bg-dark-paper">
+              <div
+                className="relative aspect-video bg-white dark:bg-dark-paper"
+                style={{ backgroundImage: "none" }}
+              >
                 {project.images && project.images.length > 0 ? (
                   <>
                     {/* Main Image with elegant fade effect */}
@@ -120,6 +124,7 @@ export default function ProjectModal({
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.7 }}
                         className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-dark-secondary"
+                        style={{ backgroundImage: "none" }}
                       >
                         {/* Real implementation with Next.js Image */}
                         <div className="relative w-full h-full">
@@ -135,7 +140,6 @@ export default function ProjectModal({
                             className="object-contain"
                             priority={true}
                           />
-                          <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
                         </div>
                       </motion.div>
                     </div>
@@ -182,7 +186,10 @@ export default function ProjectModal({
                   </>
                 ) : (
                   // Fallback if no gallery images - use main project image
-                  <div className="w-full h-full bg-paper dark:bg-dark-secondary relative">
+                  <div
+                    className="w-full h-full bg-white dark:bg-dark-secondary relative"
+                    style={{ backgroundImage: "none" }}
+                  >
                     <FallbackImage
                       src={project.image}
                       alt={project.title}
@@ -190,13 +197,15 @@ export default function ProjectModal({
                       className="object-contain"
                       priority={true}
                     />
-                    <div className="absolute inset-0 paper-texture opacity-10 pointer-events-none"></div>
                   </div>
                 )}
               </div>
 
               {/* Content - Elegant styled */}
-              <div className="p-6 md:p-10 bg-white dark:bg-dark-paper">
+              <div
+                className="p-6 md:p-10 bg-white dark:bg-dark-paper"
+                style={{ backgroundImage: "none" }}
+              >
                 {/* Title Section with Elegant Design */}
                 <div className="flex flex-wrap justify-between items-start gap-6 mb-10 relative">
                   <div className="flex-1">
@@ -307,7 +316,10 @@ export default function ProjectModal({
                     <h4 className="text-lg font-serif mb-4 text-dark dark:text-primary">
                       Challenges & Solutions
                     </h4>
-                    <p className="text-stone dark:text-stone-dark font-sans leading-relaxed p-6 bg-paper dark:bg-dark-secondary">
+                    <p
+                      className="text-stone dark:text-stone-dark font-sans leading-relaxed p-6 bg-white dark:bg-dark-secondary"
+                      style={{ backgroundImage: "none" }}
+                    >
                       {project.challenges}
                     </p>
                   </div>
