@@ -40,11 +40,15 @@ export const personalInfo = {
     "PostgreSQL",
     "Tailwind CSS",
     "ASP.NET MVC",
-    "PHP",
+    "Express.js",
     "TypeScript",
     "MSSQL",
     "Figma",
     "C#",
+    "JavaScript",
+    "Node.js",
+    "Express",
+    "React",
   ],
 
   technologies: [
@@ -66,11 +70,12 @@ export const personalInfo = {
       items: [
         "Next.js",
         "NestJS",
+        "Node.js",
+        "Express.js",
         "ASP.NET MVC",
         "React",
         "Tailwind CSS",
         "Figma",
-        "OpenGL",
       ],
     },
     {
@@ -86,7 +91,7 @@ export const personalInfo = {
         "Multer",
         "Nodemailer",
         "Stripe",
-        "Select2",
+        "Brevo",
         "Rotativa",
         "AJAX",
         "Razor Pages",
@@ -97,9 +102,16 @@ export const personalInfo = {
   // Experience (for About section)
   experience: [
     {
+      title: "Backend Engineer Intern",
+      company: "V2 Technologies Ltd.",
+      period: "2025 - Present",
+      description:
+        "Working with Node.js, Express, and PostgreSQL to build and maintain scalable backend services. Focused on API development, database optimization, and integrating third-party services to enhance application functionality.",
+    },
+    {
       title: "Full Stack Developer",
       company: "Academic & Personal Projects",
-      period: "2023 - Present",
+      period: "2023 - 2025",
       description:
         "Worked on a variety of projects including e-commerce platforms, inventory management systems, and project management tools. Focused on building scalable solutions with secure authentication, data-driven dashboards, and clean UI/UX.",
     },
