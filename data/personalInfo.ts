@@ -10,11 +10,11 @@ export const personalInfo = {
   // Basic Information
   name: "nocillax",
   fullName: "ASIF CHOWDHURY",
-  title: "Full Stack Developer",
+  title: "Full Stack Web Developer",
   location: "Dhaka, Bangladesh",
 
   // About Section
-  bio: "I’m a Full Stack Developer with a passion for crafting scalable web applications that merge solid engineering with thoughtful design. I love solving real-world problems through clean code, intuitive interfaces, and modern UX practices.",
+  bio: "I’m a Full Stack Web Developer with a passion for crafting scalable web applications that merge solid engineering with thoughtful design. I love solving real-world problems through clean code, intuitive interfaces, and modern UX practices.",
 
   // Contact Information
   email: "asifjarif@gmail.com",
@@ -55,46 +55,50 @@ export const personalInfo = {
     {
       category: "Languages",
       items: [
-        "C++",
+        "TypeScript",
+        "JavaScript",
+        "Solidity",
         "C#",
         "Java",
-        "JavaScript",
-        "TypeScript",
         "PHP",
-        "HTML",
-        "CSS",
+        "C++",
+        "SQL",
       ],
     },
     {
       category: "Frameworks & Tools",
       items: [
-        "Next.js",
+        "Next.js 14",
         "NestJS",
-        "Node.js",
-        "Express.js",
-        "ASP.NET MVC",
         "React",
+        "Node.js",
+        "ASP.NET MVC",
         "Tailwind CSS",
-        "Figma",
+        "Docker",
+        "Hardhat",
       ],
     },
     {
-      category: "Databases",
-      items: ["PostgreSQL", "MySQL", "MSSQL", "Oracle"],
+      category: "Databases & Blockchain",
+      items: [
+        "PostgreSQL",
+        "Ethereum (GoQuorum)",
+        "MySQL",
+        "MSSQL",
+        "Oracle",
+        "TypeORM",
+      ],
     },
     {
       category: "Others",
       items: [
-        "Zustand",
-        "Toastr",
-        "JWT",
-        "Multer",
-        "Nodemailer",
-        "Stripe",
-        "Brevo",
-        "Rotativa",
-        "AJAX",
-        "Razor Pages",
+        "Blockchain & Smart Contracts",
+        "System Integration (ERP/CRM)",
+        "RESTful API Design",
+        "Zustand & TanStack Query",
+        "OAuth 2.0 & JWT",
+        "Stripe Integration",
+        "Internationalization (i18n)",
       ],
     },
   ],
@@ -104,14 +108,14 @@ export const personalInfo = {
     {
       title: "Backend Engineer Intern",
       company: "V2 Technologies Ltd.",
-      period: "2025 - Present",
+      period: "September 2025 - December 2025",
       description:
         "Working with Node.js, Express, and PostgreSQL to build and maintain scalable backend services. Focused on API development, database optimization, and integrating third-party services to enhance application functionality.",
     },
     {
-      title: "Full Stack Developer",
+      title: "Full Stack Web Developer",
       company: "Academic & Personal Projects",
-      period: "2023 - 2025",
+      period: "January 2023 - September 2025",
       description:
         "Worked on a variety of projects including e-commerce platforms, inventory management systems, and project management tools. Focused on building scalable solutions with secure authentication, data-driven dashboards, and clean UI/UX.",
     },
@@ -120,17 +124,18 @@ export const personalInfo = {
   // Education
   education: [
     {
-      degree:
-        "BSc in Computer Science & Engineering (Major in Software Engineering)",
+      degree: "BSc in Computer Science & Engineering",
       institution: "American International University-Bangladesh (AIUB)",
-      year: "CGPA: 3.98",
+      year: "January 2022 - January 2026",
+      result: "CGPA: 3.98",
+      description: "Major in Software Engineering",
     },
   ],
 
   // Awards & Certificates
   awards: [
     "Consistently awarded Academic Scholarship during BSc program",
-    "Repeatedly recognized on the Dean's Honor List",
+    "Repeatedly recognized on the Dean's Honor List (6 Semesters)",
     "Best Poster Award - Physics Poster Contest 2023 (AIUB)",
     "IELTS Score: 7.5 (Jan 2022)",
   ],

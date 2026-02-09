@@ -25,7 +25,7 @@ export default function Footer() {
               Md Asif Chowdhury
             </Link>
             <p className="text-stone dark:text-stone-dark mt-2 font-sans">
-              Full Stack Developer
+              Full Stack Web Developer
             </p>
           </div>
 

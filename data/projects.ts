@@ -16,6 +16,102 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "fs-6",
+    title: "NXCertify",
+    description:
+      "A decentralized blockchain platform for secure academic certificate issuance and verification, eliminating fraud through immutability.",
+    longDescription:
+      "NXCertify leverages a private Ethereum blockchain to revolutionize academic credentialing. Replacing passwords with cryptographic wallet signatures, the system stores all certificate records on-chain via smart contracts. It features a meta-transaction architecture where admins cover gas fees, a full certificate lifecycle (issuance, revocation, versioning), and instant public verification via QR codes. It even includes offline activity detection to monitor potential security breaches of private keys.",
+    image: "/images/projects/nx-cert1.png",
+    images: [
+      "/images/projects/nx-cert1.png",
+      "/images/projects/nx-cert2.png",
+      "/images/projects/nx-cert3.png",
+      "/images/projects/nx-cert4.png",
+      "/images/projects/nx-cert5.png",
+      "/images/projects/nx-cert6.png",
+      "/images/projects/nx-cert7.png",
+    ],
+    category: "Full-Stack",
+    tags: [
+      "Solidity",
+      "Blockchain",
+      "NestJS",
+      "Next.js",
+      "Ethers.js",
+      "Ethereum",
+    ],
+    features: [
+      "Passwordless authentication via MetaMask signatures",
+      "Immutable on-chain certificate storage",
+      "Meta-transaction pattern for gas-free user experience",
+      "Public verification via Keccak256 hashing & QR codes",
+      "Comprehensive audit trails and lifecycle management",
+      "Rate-limited verifier tracking system",
+    ],
+    technologies: [
+      "Solidity (Smart Contracts)",
+      "Ethereum (Quorum/IBFT 2.0)",
+      "Ethers.js",
+      "NestJS",
+      "Next.js 14",
+      "PostgreSQL",
+      "Hardhat",
+    ],
+    challenges:
+      "The biggest challenge was abstracting blockchain complexity for non-technical users. Implementing meta-transactions allowed users to interact with the blockchain without needing to hold cryptocurrency, while maintaining a sub-150ms verification speed.",
+    liveUrl: "",
+    githubUrl: "https://github.com/nocillax/thesis/tree/main/proposed",
+  },
+  {
+    id: "fs-5",
+    title: "NX-Inventra",
+    description:
+      "A cloud-based collaborative inventory platform featuring dynamic schemas, real-time sync, and enterprise ERP integrations.",
+    longDescription:
+      "NX-Inventra is a highly flexible management system allowing organizations to build custom inventories with dynamic fields and sophisticated ID generation. It features a robust role-based access control system (Owner, Editor, Viewer) and integrates with external ecosystems like Odoo ERP, Salesforce, and Dropbox. The platform provides deep analytical insights through interactive charts and supports multi-language localization for global teams.",
+    image: "/images/projects/nx-inv1.png",
+    images: [
+      "/images/projects/nx-inv1.png",
+      "/images/projects/nx-inv2.png",
+      "/images/projects/nx-inv3.png",
+      "/images/projects/nx-inv4.png",
+      "/images/projects/nx-inv5.png",
+      "/images/projects/nx-inv6.png",
+    ],
+    category: "Full-Stack",
+    tags: [
+      "NestJS",
+      "Next.js 14",
+      "PostgreSQL",
+      "Tailwind",
+      "OAuth",
+      "TypeScript",
+    ],
+    features: [
+      "Customizable inventory schemas with 8+ ID formats",
+      "Role-based team collaboration and invitations",
+      "Odoo ERP and Salesforce CRM integration",
+      "Advanced analytics dashboard with Recharts",
+      "Multi-language support (English/Bengali)",
+      "High-performance full-text search",
+    ],
+    technologies: [
+      "NestJS",
+      "Next.js (App Router)",
+      "PostgreSQL (TypeORM)",
+      "Zustand & SWR",
+      "Radix UI / Shadcn",
+      "XML-RPC (Odoo API)",
+      "dnd-kit",
+    ],
+    challenges:
+      "Designing a system that allows users to define their own data structures while maintaining type safety and search performance was the primary hurdle. I utilized PostgreSQL GIN indexes for search and Zod for dynamic schema validation.",
+    liveUrl: "",
+    githubUrl: "https://github.com/nocillax/it-NXInventra",
+  },
+
+  {
     id: "fs-2",
     title: "E-Commerce Website",
     description:
@@ -129,6 +225,7 @@ export const projects: Project[] = [
     liveUrl: "",
     githubUrl: "https://github.com/nocillax/TeamSync",
   },
+
   {
     id: "fe-1",
     title: "Luna Tours - Tour Booking Platform",
