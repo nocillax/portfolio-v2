@@ -110,7 +110,7 @@ export const personalInfo = {
       company: "V2 Technologies Ltd.",
       period: "September 2025 - December 2025",
       description:
-        "Working with Node.js, Express, and PostgreSQL to build and maintain scalable backend services. Focused on API development, database optimization, and integrating third-party services to enhance application functionality.",
+        "Built and maintained scalable RESTful APIs using NestJS and TypeScript, securing endpoints with OAuth 2.0 and RBAC. Optimized PostgreSQL database performance via TypeORM and collaborated with cross-functional teams to define strict API contracts and ensure seamless integration.",
     },
     {
       title: "Full Stack Web Developer",
